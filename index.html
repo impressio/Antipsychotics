@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="figma">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antipsychotics &amp; the D2 receptor</title>
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+  <link rel="icon" href="assets/icons/apple-touch-icon.png" type="image/png" sizes="180x180" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta name="description" content="Interactive web app illustrating antipsychotic pharmacodynamics (D2 receptor occupancy and receptor binding profiles) and pharmacokinetics." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/theme-figma.css" />
+
+  <!-- JavaScript libraries from CDN -->
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/" }, "integrity": { "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js": "sha384-qOubuRxWZ0I7rXTjcuhcKNHKvPM7q0ztN8/82sJnxnyKS0OXTeB5FsIcysc2T9EY", "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/controls/OrbitControls.js": "sha384-aJoe4qqS/DgF2jh9njAuvA6QIveJYoCuYOfYjdFY8P3eawzmc9bEQ40jq2TvOyuP" } }</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8" integrity="sha384-cCVCZkAjYNxaYKbM8lsArLznDF/SvMFr1jcZrvOpSTCa0W40ZAdLzHCEulnUa5i7" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/3dmol@2.4.2/build/3Dmol-min.js" integrity="sha384-zxWwO8usW1MzUHquSL3foT+Cw2ndelPQ5bNzHVYdKGiJ0vqvqQ8Y9XeKLmotffmQ" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+<!-- ───────────── NAV ───────────── -->
+<header class="topbar">
+  <a class="brand" href="#" id="brand-home" aria-label="AP·D2, back to top" data-i18n-aria-label="header.homeLabel">
+    <svg viewBox="0 0 40 40" class="brand-logo" aria-hidden="true">
+      <g transform="translate(20 20)">
+        <circle r="5.4" cx="0" cy="-11.5" fill="#74C0FC"/>
+        <circle r="5.4" cx="9" cy="-7.2" fill="#4DABF7"/>
+        <circle r="5.4" cx="11.5" cy="2.6" fill="#3B6FD8"/>
+        <circle r="5.4" cx="4" cy="10.8" fill="#A5D8FF"/>
+        <circle r="5.4" cx="-6.2" cy="9.8" fill="#1C7ED6"/>
+        <circle r="5.4" cx="-11.5" cy="1" fill="#5F3DC4"/>
+        <circle r="5.4" cx="-7" cy="-8.4" fill="#9775FA"/>
+        <circle r="3.1" fill="#E67700"/>
+      </g>
+    </svg>
+    <span>AP<span class="brand-light">·D<sub>2</sub></span></span>
+  </a>
+  <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-i18n-aria-label="header.openMenu">
+    <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+    <span class="menu-label" aria-live="polite"></span>
+  </button>
+  <nav id="site-nav">
+    <a href="#mechanism" data-i18n="nav.mechanism">Mechanism</a>
+    <a href="#targets" data-i18n="nav.targets">Targets</a>
+    <a href="#substrates" data-i18n="nav.substances">Substances</a>
+    <a href="#routes" data-i18n="nav.routes">Routes</a>
+    <a href="#pd" data-i18n="nav.pharmacodynamics">Pharmacodynamics</a>
+    <a href="#pk" data-i18n="nav.pharmacokinetics">Pharmacokinetics</a>
+    <a href="#safety" data-i18n="nav.safety">Safety</a>
+  </nav>
+  <div class="settings">
+    <button type="button" class="settings-toggle" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel" title="Language, values and units" data-i18n-title="settings.button">EN · US</button>
+    <div class="settings-panel" id="settings-panel" hidden>
+      <div class="settings-group">
+        <span class="settings-label" data-i18n="settings.language">Language</span>
+        <div class="seg" role="group" aria-label="Language" data-i18n-aria-label="settings.language">
+          <button type="button" data-setting="lang" data-value="en" lang="en">English</button>
+          <button type="button" data-setting="lang" data-value="sv" lang="sv">Svenska</button>
+        </div>
+      </div>
+      <div class="settings-group">
+        <span class="settings-label" data-i18n="settings.region">Values and units</span>
+        <div class="seg" role="group" aria-label="Values and units" data-i18n-aria-label="settings.region">
+          <button type="button" data-setting="region" data-value="us" title="US: FDA prescribing information, US brand names, ng/mL" data-i18n-title="settings.us">US</button>
+          <button type="button" data-setting="region" data-value="eu" title="EU: EU product information as published in FASS (Sweden), Swedish product names, µg/L" data-i18n-title="settings.eu">EU</button>
+          <button type="button" data-setting="region" data-value="se" title="SE: EU product information as published in FASS (Sweden), Swedish product names, nmol/L" data-i18n-title="settings.se">SE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ───────────── HERO ───────────── -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Molecular &amp; clinical pharmacology</p>
+    <h1 data-i18n="hero.title">Antipsychotics &amp; the D<sub>2</sub> receptor</h1>
+    <p class="lead" data-i18n="hero.lead">Almost every antipsychotic acts at the <strong>dopamine D<sub>2</sub> receptor</strong>, a class A G-protein-coupled receptor that signals through <span class="chip chip-gi">Gα<sub>i/o</sub></span>. First-generation agents are <strong>competitive antagonists</strong>; most second-generation agents combine D<sub>2</sub> antagonism with <span class="chip chip-ht2a">5-HT<sub>2A</sub></span> blockade; and the newest class are <strong>D<sub>2</sub> partial agonists</strong> that occupy the receptor while leaving part of its signaling intact. Because antagonism is competitive, occupancy depends on the local <span class="chip chip-da">dopamine</span> concentration, which differs between the dopaminergic projections - the reason one plasma concentration produces a therapeutic effect in one pathway and adverse effects in another. This resource integrates receptor structure, binding profiles, drug properties and pharmacokinetic-pharmacodynamic models.</p>
+  </div>
+</section>
+
+<main>
+
+<!-- ───────────── 1. MECHANISM ───────────── -->
+<section id="mechanism" class="section">
+  <div class="section-head">
+    <span class="step">1</span>
+    <div>
+      <h2 data-i18n="mechanism.title">Competitive antagonism at the receptor</h2>
+      <p data-i18n="mechanism.intro">Crystal structure of the human D<sub>2</sub> receptor in complex with risperidone (PDB <a href="https://www.rcsb.org/structure/6CM4" target="_blank" rel="noopener">6CM4</a>; Wang et al., <i>Nature</i> 2018), shown as a simulated density map in a lipid bilayer. The orthosteric pocket follows the selected drug, and the conformation follows the ligand shown: dopamine and partial agonists shift the structure toward the active state (outward swing of the intracellular end of TM6, superposed from PDB <a href="https://www.rcsb.org/structure/8U02" target="_blank" rel="noopener">8U02</a>).</p>
+    </div>
+  </div>
+
+  <div class="card mech-card" id="illo-card">
+    <!-- Controls -->
+    <aside class="controls mech-controls">
+      <label><span data-i18n="mechanism.pathwayLabel">Dopaminergic pathway</span>
+        <select id="m-path"></select>
+      </label>
+      <label><span data-i18n="mechanism.daLabel">Synaptic dopamine</span>
+        <select id="m-da">
+          <option value="0" data-i18n="mechanism.daNone">None</option>
+          <option value="8" data-i18n="mechanism.daLow">Low · mesocortical (8 nM)</option>
+          <option value="20" data-i18n="mechanism.daTonic">Tonic · striatal (20 nM)</option>
+          <option value="200" selected data-i18n="mechanism.daRaised">Raised · mesolimbic (200 nM)</option>
+          <option value="1000" data-i18n="mechanism.daPhasic">Phasic burst (1 µM)</option>
+        </select>
+      </label>
+      <label><span data-i18n="mechanism.drugLabel">Antipsychotic</span>
+        <select id="m-ligand"></select>
+        <span class="abbr-note" data-i18n="mechanism.abbr">FGA, SGA: first- and second-generation antipsychotic</span>
+      </label>
+      <div class="dose-row">
+        <label><span data-i18n="mechanism.dose">Dose (mg)</span><input type="number" id="m-dose" min="0" step="0.5" value="2" /></label>
+        <label><span data-i18n="mechanism.doses">Doses</span><input type="number" id="m-n" min="1" max="365" step="1" value="1" /></label>
+        <label><span data-i18n="mechanism.tau">τ (h)</span><input type="number" id="m-tau" min="1" max="4368" step="1" value="12" title="Dosing interval" data-i18n-title="mechanism.tauTip" /></label>
+      </div>
+      <span class="abbr-note dose-note" id="m-dose-note"></span>
+      <label><span data-i18n="mechanism.freeConc">Free drug concentration</span> <b id="m-conc-val">10 nM</b>
+        <input type="range" id="m-conc" min="-2" max="4" step="0.01" value="1" />
+      </label>
+
+      <div class="readouts" id="m-readouts"></div>
+    </aside>
+
+    <!-- Rotatable structure (3Dmol.js) -->
+    <div class="illo-stage">
+      <div class="rx-title" id="rx-title"></div>
+      <div class="mol-wrap">
+        <div id="mol-viewer" class="mol-viewer"><div class="mol-loading" data-i18n="st.loading">Loading receptor structure (PDB 6CM4)…</div></div>
+        <p class="mol-hint" data-i18n="mechanism.hint">Drag to rotate · scroll to zoom · select a helix, the ligand or the intracellular face for details</p>
+      </div>
+      <div class="rx-badge" id="rx-badge"></div>
+      <label class="mol-zoom"><span data-i18n="mechanism.zoom">Zoom</span>
+        <input type="range" id="mol-zoom" min="-1" max="2" step="0.05" value="0" aria-label="Zoom level" data-i18n-aria-label="mechanism.zoomLevel" />
+        <b id="mol-zoom-val">1.0×</b>
+      </label>
+      <div class="mol-toolbar">
+        <button type="button" data-mol="reset" title="Return to the default membrane-plane view" data-i18n-title="mechanism.resetTip" data-i18n="mechanism.reset">Reset</button>
+        <button type="button" data-mol="top" title="Look down the helix bundle from the extracellular side" data-i18n-title="mechanism.topTip" data-i18n="mechanism.top">Top view</button>
+        <button type="button" data-mol="cut" id="mol-btn-cut" title="Sectional view: remove the two helices nearest the camera to expose the pocket" data-i18n-title="mechanism.cutTip" data-i18n="mechanism.cut">Sectional view</button>
+        <button type="button" data-mol="surface" id="mol-btn-surface" title="Switch to ribbon (cartoon) view" data-i18n-title="mechanism.ribbonsTip" data-i18n="mechanism.ribbons">Ribbons</button>
+        <button type="button" data-mol="pocket" title="Zoom to the orthosteric binding pocket" data-i18n-title="mechanism.pocketTip" data-i18n="mechanism.pocket">Orthosteric pocket</button>
+        <button type="button" data-mol="gi" title="Zoom to the DRY motif and the Gα i/o interface" data-i18n-title="mechanism.giTip" data-i18n="mechanism.gi">Gα<sub>i/o</sub> interface</button>
+        <button type="button" data-mol="state" id="mol-btn-state" title="Morph between the inactive and active conformations" data-i18n-title="mechanism.stateTip" data-i18n="mechanism.activeState">Active state</button>
+      </div>
+      <div class="legend">
+        <span><i class="dot" style="background:#3B6FD8"></i><span data-i18n="mechanism.legendTm3">TM3 (Asp114)</span></span>
+        <span><i class="dot" style="background:#1C7ED6"></i>TM5</span>
+        <span><i class="dot" style="background:#5F3DC4"></i>TM6</span>
+        <span><i class="dot" style="background:#9775FA"></i>TM7</span>
+        <span><i class="dot" style="background:#DEE2E6"></i><span data-i18n="mechanism.legendLoops">Loops</span></span>
+        <span id="mol-legend-ligand"><i class="dot" style="background:#8E4EC6"></i><span data-i18n="mechanism.legendLigand">Ligand</span></span>
+        <span><i class="dot" style="background:#C2255C"></i><span data-i18n="mechanism.legendPocket">Pocket residues</span></span>
+        <span><i class="dot" style="background:#0B7285"></i><span data-i18n="mechanism.legendDry">DRY motif</span></span>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="illo-info">
+      <div id="m-subinfo" class="subinfo"></div>
+      <div id="mol-status" class="mol-status-panel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 2. TARGETS ───────────── -->
+<section id="targets" class="section">
+  <div class="section-head">
+    <span class="step">2</span>
+    <div>
+      <h2 data-i18n="targets.title">Receptor targets &amp; clinical effects</h2>
+      <p data-i18n="targets.intro">Antipsychotics are not selective: each binds a characteristic set of aminergic receptors, and the order of its affinities determines which effects appear at therapeutic doses. Blockade of D<sub>2</sub> underlies the antipsychotic effect, extrapyramidal symptoms and prolactin elevation; blockade of 5-HT<sub>2A</sub>, 5-HT<sub>2C</sub>, H<sub>1</sub>, M<sub>1</sub> and α<sub>1</sub> accounts for much of the remaining clinical profile. The cards below show each target with its live occupancy for the drug and concentration selected in <a href="#mechanism">Competitive antagonism at the receptor</a> (kept in sync with <a href="#pd">Pharmacodynamics</a>); selecting a card shows that receptor in the distribution map.</p>
+    </div>
+  </div>
+  <div class="targets-panel" id="pd-targets-panel">
+    <div class="panel-head panel-head-compact">
+      <div id="pd-occ-summary-badge" class="sub-effect-status"></div>
+    </div>
+    <div id="pd-targets-grid" class="subunits-effects-grid"></div>
+  </div>
+  <div class="card dist-card">
+    <h3 data-i18n="targets.distTitle">Regional distribution of the target receptors and dopaminergic pathways</h3>
+    <p class="muted" data-i18n="targets.distIntro">Relative abundance of each receptor by brain region on a brain model built from neuroimaging templates, shown as a rotatable 3D model or as a 2D map rendered from it; one hemisphere is translucent to expose the deep structures (thalamus, striatum, hippocampus, amygdala, hypothalamus), brainstem and cerebellum. Select a receptor to switch the map. The four dopaminergic pathways are drawn on the model as colored tracts, with pulses running from the origin nucleus to the targets. Hover over a structure or a pathway for details.</p>
+    <div id="dist-panel"></div>
+  </div>
+</section>
+
+<!-- ───────────── 3. SUBSTANCES ───────────── -->
+<section id="substrates" class="section">
+  <div class="section-head">
+    <span class="step">3</span>
+    <div>
+      <h2 data-i18n="substances.title">Antipsychotic substances</h2>
+      <p data-i18n="substances.intro">Representative agents from each generation with 2D structures and a comparative table of pharmacokinetic and clinical properties. Biotransformation pathways are described under <a href="#pk-metabolism">Pharmacokinetics</a>.</p>
+    </div>
+  </div>
+
+  <div class="ligand-gallery" id="ligand-gallery"></div>
+
+  <div class="card substances-card">
+    <h3 data-i18n="substances.tableTitle">Substances comparison &amp; clinical pharmacology</h3>
+    <p class="muted" data-i18n="substances.tableIntro">Filter by generation or by availability as a long-acting injectable, or search by INN, brand, class, indication, active metabolite or clearance enzyme. Selecting a row applies the substance to all simulations.</p>
+    <div id="substances-table-container"></div>
+  </div>
+</section>
+
+<!-- ───────────── 4. ADMINISTRATION ROUTES ───────────── -->
+<section id="routes" class="section">
+  <div class="section-head">
+    <span class="step">4</span>
+    <div>
+      <h2 data-i18n="routes.title">Administration routes &amp; onset of action</h2>
+      <p data-i18n="routes.intro">Five routes (IV, short-acting IM, orodispersible, oral and long-acting injectable) compared by onset, time to peak concentration and bioavailability. The contrast between short-acting intramuscular injection for acute agitation and depot injection for maintenance treatment spans four orders of magnitude in time, from minutes to weeks.</p>
+    </div>
+  </div>
+  <div id="routes-container"></div>
+</section>
+
+<!-- ───────────── 5. PHARMACODYNAMICS ───────────── -->
+<section id="pd" class="section">
+  <div class="section-head">
+    <span class="step">5</span>
+    <div>
+      <h2 data-i18n="pd.title">Pharmacodynamics</h2>
+      <p data-i18n="pd.intro">Competitive binding at D<sub>2</sub> between drug (concentration C, dissociation constant K<sub>i</sub>) and dopamine ([DA], K<sub>DA</sub>): the fractional occupancy is <span class="tex" data-tex="\theta = (C/K_i)\,/\,(1 + C/K_i + [\mathrm{DA}]/K_{\mathrm{DA}})">θ = (C/K<sub>i</sub>) / (1 + C/K<sub>i</sub> + [DA]/K<sub>DA</sub>)</span>, and receptor signaling is <span class="tex" data-tex="E = ([\mathrm{DA}]/K_{\mathrm{DA}} + \alpha\,C/K_i)\,/\,(1 + C/K_i + [\mathrm{DA}]/K_{\mathrm{DA}})">E = ([DA]/K<sub>DA</sub> + α·C/K<sub>i</sub>) / (1 + C/K<sub>i</sub> + [DA]/K<sub>DA</sub>)</span>, where α is the intrinsic activity of the drug (α = 0 for an antagonist, 0 &lt; α &lt; 1 for a partial agonist). The functional blockade that drives clinical effect is therefore θ·(1 − α), which is why a partial agonist can occupy most receptors without abolishing signaling.</p>
+    </div>
+  </div>
+
+  <div class="card controls-row pd-controls">
+    <label><span data-i18n="pd.drugLabel">Drug</span> <select id="pd-drug"></select></label>
+    <label><span data-i18n="pd.daLabel">Synaptic dopamine</span> <select id="pd-da"></select></label>
+    <label><span data-i18n="pd.freeLabel">Free drug:</span> <b id="pd-conc-val"></b>
+      <input type="range" id="pd-conc" min="-2" max="4" step="0.01" value="1" />
+    </label>
+  </div>
+
+  <div class="plot-grid">
+    <div class="card plot-card">
+      <h3 data-i18n="pd.occTitle">Receptor occupancy by target</h3>
+      <div id="pd-plot-occ" class="plot"></div>
+      <div id="pd-occ-summary" class="summary"></div>
+    </div>
+    <div class="card plot-card">
+      <h3 data-i18n="pd.crTitle">Competition with dopamine</h3>
+      <div id="pd-plot-cr" class="plot"></div>
+      <div id="pd-cr-summary" class="summary"></div>
+    </div>
+    <div class="card plot-card">
+      <h3 data-i18n="pd.selTitle">Receptor affinity (pK<sub>i</sub>) and potency (pEC<sub>50</sub>) profile</h3>
+      <div id="pd-plot-sel" class="plot"></div>
+      <div id="pd-sel-scale" class="radar-scale"></div>
+      <div id="pd-sel-summary" class="summary"></div>
+    </div>
+    <div class="card plot-card">
+      <h3 data-i18n="pd.doseTitle">Dose and striatal D<sub>2</sub> occupancy</h3>
+      <div id="pd-plot-dose" class="plot"></div>
+      <div id="pd-dose-summary" class="summary"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── 6. PHARMACOKINETICS ───────────── -->
+<section id="pk" class="section">
+  <div class="section-head">
+    <span class="step">6</span>
+    <div>
+      <h2 data-i18n="pk.title">Pharmacokinetics</h2>
+      <p data-i18n="pk.intro">One-compartment model with first-order absorption and elimination, including chains of active metabolites (9-hydroxyrisperidone after risperidone, dehydroaripiprazole after aripiprazole, the two sequential metabolites of cariprazine) and patient- and interaction-related modifiers acting on specific elimination pathways (CYP1A2, CYP2D6, CYP3A4, glucuronidation, renal excretion). Depot injections are absorption-limited, so their apparent half-life is set by release from the injection site rather than by elimination.</p>
+    </div>
+  </div>
+
+  <div class="card controls-row single-line">
+    <label class="wide"><span data-i18n="pk.drugLabel">Drug</span> <select id="pk-drug"></select></label>
+    <label class="mid"><span data-i18n="pk.routeLabel">Route</span> <select id="pk-route"></select></label>
+    <label id="pk-product-wrap" class="mid"><span data-i18n="pk.productLabel">Product</span> <select id="pk-product"></select></label>
+    <label><span data-i18n="pk.doseLabel">Dose (mg)</span> <input type="number" id="pk-dose" min="0.05" step="0.5" value="2" /><select id="pk-dose-sel" hidden></select></label>
+    <label><span data-i18n="pk.nLabel">Doses</span> <input type="number" id="pk-n" min="1" max="365" step="1" value="1" /></label>
+    <label><span data-i18n="pk.tauLabel">Interval τ (h)</span> <input type="number" id="pk-tau" min="1" max="4368" step="1" value="12" /></label>
+    <label><span data-i18n="pk.wtLabel">Body weight (kg)</span> <input type="number" id="pk-wt" min="30" max="150" step="1" value="70" /></label>
+    <label><span data-i18n="pk.scaleLabel">Y-axis</span>
+      <select id="pk-scale"><option value="linear" data-i18n="pk.linear">Linear</option><option value="log" data-i18n="pk.log">Log</option></select>
+    </label>
+  </div>
+  <div class="card controls-row mods" id="pk-mods"></div>
+
+  <div class="plot-grid">
+    <div class="card plot-card wide">
+      <div class="plot-head">
+        <h3 data-i18n="pk.profileTitle">Plasma concentration-time profile</h3>
+        <div class="plot-actions">
+          <label class="init-select" title="Initiation regimen" data-i18n-title="pk.initTip"><span data-i18n="pk.initLabel">Start</span> <select id="pk-init"></select></label>
+          <button type="button" id="pk-accum-btn" title="Repeat the dose until steady state is reached" data-i18n-title="pk.accumTip" data-i18n="pk.accumButton">📈 Show accumulation</button>
+          <button type="button" id="pk-single-btn" title="Back to a single dose" data-i18n-title="pk.singleTip" data-i18n="pk.singleButton">Single dose</button>
+        </div>
+      </div>
+      <div id="pk-plot-ct" class="plot tall"></div>
+      <div id="pk-accum-summary" class="summary"></div>
+    </div>
+    <div class="card plot-card">
+      <h3 data-i18n="pk.paramsTitle">Derived PK parameters</h3>
+      <table class="params" id="pk-params"></table>
+      <div id="pk-notes" class="summary"></div>
+    </div>
+    <div class="card plot-card">
+      <h3 data-i18n="pk.cmpTitle">Duration of exposure comparison</h3>
+      <div id="pk-plot-cmp" class="plot"></div>
+      <div id="pk-cmp-summary" class="summary"></div>
+    </div>
+  </div>
+  <div class="card pk-metabolism" id="pk-metabolism">
+    <h3 data-i18n="pk.metabolismTitle">Biotransformation &amp; active metabolites</h3>
+    <p class="muted" data-i18n="pk.metabolismIntro">Most antipsychotics undergo hepatic oxidation by CYP1A2, CYP2D6 or CYP3A4, several by direct glucuronidation, and two (paliperidone, amisulpride) are largely excreted unchanged by the kidney. Active metabolites with half-lives longer than the parent drug determine how long dose changes take to take full effect. These pathways determine the modifier effects simulated above.</p>
+    <div class="pathways" id="metabolic-pathways"></div>
+  </div>
+</section>
+
+<!-- ───────────── 7. SAFETY & MONITORING ───────────── -->
+<section id="safety" class="section">
+  <div class="section-head">
+    <span class="step">7</span>
+    <div>
+      <h2 data-i18n="safety.title">Safety &amp; monitoring</h2>
+      <p data-i18n="safety.intro">The adverse-effect burden of this class follows directly from the receptor profiles in <a href="#targets">Receptor targets</a> and the exposure in <a href="#pk">Pharmacokinetics</a>. Baseline and periodic monitoring is recommended for all agents, with drug-specific additions.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h3 data-i18n="safety.monitoringTitle">Monitoring commonly recommended</h3>
+    <ul class="notes-list">
+      <li data-i18n="safety.metabolic"><b>Metabolic.</b> Weight and waist circumference, blood pressure, fasting glucose or HbA<sub>1c</sub> and a lipid profile at baseline, at 3 months, then at least annually; more often with clozapine, olanzapine and quetiapine, and in children and adolescents, in whom weight gain is greater.</li>
+      <li data-i18n="safety.movement"><b>Movement disorders.</b> Examination for parkinsonism, akathisia, acute dystonia and tardive dyskinesia at baseline and at each review (for example with the AIMS or a comparable scale), particularly with first-generation agents and higher D<sub>2</sub> occupancy.</li>
+      <li data-i18n="safety.prolactin"><b>Prolactin.</b> Measure when symptoms suggest elevation (menstrual disturbance, galactorrhea, sexual dysfunction, gynecomastia); highest with amisulpride, risperidone, paliperidone and first-generation agents.</li>
+      <li data-i18n="safety.cardiac"><b>Cardiac.</b> ECG before and during treatment where QTc prolongation is a concern (high-dose or intravenous haloperidol, ziprasidone, pimozide, amisulpride, or co-prescribed QT-prolonging drugs), and with risk factors or electrolyte disturbance.</li>
+      <li data-i18n="safety.clozapine"><b>Clozapine-specific.</b> Absolute neutrophil count on a mandatory schedule; troponin and C-reactive protein if myocarditis is suspected in the first 8 weeks; active enquiry about constipation; plasma levels when efficacy, adherence, smoking change or infection is in question.</li>
+      <li data-i18n="safety.nms"><b>Neuroleptic malignant syndrome.</b> A rare, potentially fatal reaction (fever, rigidity, altered consciousness, autonomic instability, raised creatine kinase) requiring immediate withdrawal of the drug and supportive treatment.</li>
+    </ul>
+  </div>
+  <div class="boxed-warning-banner">
+    <h4 data-i18n="safety.boxedTitle">FDA boxed warning</h4>
+    <p data-i18n="safety.boxedDementia"><b>Increased mortality in older adults with dementia-related psychosis.</b> Older adults with dementia-related psychosis treated with antipsychotic drugs are at an increased risk of death. Analyses of placebo-controlled trials of atypical antipsychotics in this population showed a risk of death in drug-treated patients of between 1.6 and 1.7 times that in placebo-treated patients; conventional antipsychotics carry a comparable or greater risk. No antipsychotic is approved for the treatment of dementia-related psychosis except brexpiprazole for agitation associated with Alzheimer dementia, and pimavanserin for hallucinations and delusions of Parkinson disease psychosis.</p>
+    <p class="muted" data-i18n="safety.boxedSuicidality">Antidepressant-class warnings additionally apply to the agents licensed as adjuncts in major depressive disorder (aripiprazole, brexpiprazole, cariprazine, quetiapine XR, olanzapine-fluoxetine), which carry the boxed warning on suicidal thoughts and behaviors in children, adolescents and young adults.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <details class="notes">
+    <summary data-i18n="notes.title">Notes &amp; limitations</summary>
+    <ul>
+      <li data-i18n="notes.parameterValues"><b>Parameter values.</b> Receptor affinities (K<sub>i</sub>) are taken from section 12.2 of the FDA label where it states them, and otherwise are the ChEMBL median for human receptors, compared with the IUPHAR/BPS Guide to Pharmacology; reported values for the same drug and receptor often differ between laboratories by 3-10-fold. Half-lives, volumes of distribution, protein binding and bioavailability come from the FDA labels (section 12.3) where available. The source of each value, the value reported there and its status (consistent, calibrated, model assumption or not yet verified) are listed in the searchable <a href="properties.html">data tables</a>; the older generic labels of haloperidol, chlorpromazine and fluphenazine contain no pharmacokinetic data, so those values are not yet sourced.</li>
+      <li data-i18n="notes.occupancyModel"><b>Occupancy model.</b> Occupancy follows mass-action binding at equilibrium. Dopamine is treated as a single competing concentration per pathway, with one effective K<sub>DA</sub>; in reality receptors exist in high- and low-affinity states, dopamine fluctuates phasically on a millisecond-to-second scale, and agonist affinity depends on G-protein coupling. Receptor reserve, internalization and up-regulation during chronic treatment (relevant to dopamine supersensitivity and tardive dyskinesia) are not represented.</li>
+      <li data-i18n="notes.calibration"><b>Dose-occupancy calibration.</b> Each drug carries one parameter (the plasma concentration of the D<sub>2</sub>-active moiety giving 50 % striatal D<sub>2</sub> occupancy) fitted to published PET studies, mostly with <sup>11</sup>C-raclopride, so that the model reproduces the reported occupancy at the studied doses (for example clozapine 75-900 mg/day: 16-69 % in the model, 16-68 % reported). It conflates plasma and brain concentrations and ignores active transport at the blood-brain barrier - which is why amisulpride, risperidone and paliperidone raise prolactin more than their striatal occupancy would suggest: the pituitary lies outside the barrier. Different radioligands give different values; for lurasidone, a <sup>18</sup>F-fallypride study in patients suggests markedly lower occupancy than the <sup>11</sup>C-raclopride study used here.</li>
+      <li data-i18n="notes.thresholds"><b>Occupancy thresholds.</b> The 65 %, 72 % and 78 % thresholds for antipsychotic response, prolactin elevation and extrapyramidal symptoms are group-level findings from small PET studies of mainly first-generation agents (Kapur et al. 2000; Farde et al. 1992) and vary between individuals. Clozapine and quetiapine are effective at considerably lower striatal occupancy, which the thresholds do not explain; rapid dissociation from D<sub>2</sub> (Kapur &amp; Seeman 2001) and contributions from other receptors have been proposed as reasons.</li>
+      <li data-i18n="notes.partialAgonism"><b>Partial agonism.</b> Intrinsic activity is modeled as a single number per drug and receptor, applied to one signaling output. In reality it is pathway-dependent (G-protein versus β-arrestin, functional selectivity) and varies with receptor density and the tissue measured, so the values here describe a tendency rather than a fixed quantity.</li>
+      <li data-i18n="notes.pharmacokineticModel"><b>Pharmacokinetic model.</b> One compartment with first-order absorption and elimination; distribution phases are therefore absent. Absorption rate constants were fitted to the time to peak in the FDA labels; as an independent check, the model predicts a steady-state peak of ≈ 306 ng/mL for clozapine 100 mg twice daily, against 319 ng/mL in the label. Depot formulations are modeled as a single first-order release process, which reproduces the apparent half-life but not the timing of the peak (e.g. ≈ 5 rather than 13 days for paliperidone palmitate). Concentrations of the parent drug and its D<sub>2</sub>-active metabolites are summed without adjustment for differing affinity, and only metabolites flagged as D<sub>2</sub>-active enter the sum.</li>
+      <li data-i18n="notes.structure"><b>Receptor structure.</b> The displayed structure is a thermostabilized crystal construct with a fused lysozyme in place of intracellular loop 3 (removed here) and several stabilizing mutations; the extracellular loops and the amino terminus are partly unresolved. Drugs other than risperidone, haloperidol and dopamine are shown on the risperidone pose, so their binding geometry is not modeled. The inactive-to-active morph interpolates linearly between two experimental structures and is not a simulation of the activation pathway; the lipid bilayer is drawn schematically.</li>
+      <li data-i18n="notes.regionalDistribution"><b>Regional distribution.</b> Abundance levels are a qualitative summary of receptor autoradiography, in situ hybridization and PET, partly in rodent brain. Levels are relative within each receptor and not comparable in absolute density between receptors. Each structure is shaded uniformly, so laminar and nuclear differences (for example 5-HT<sub>2A</sub> concentrated in cortical layer V, or D<sub>3</sub> in the nucleus accumbens shell) appear only in the descriptions. The choroid plexus, which carries the highest 5-HT<sub>2C</sub> density, is not part of the brain model.</li>
+      <li data-i18n="notes.clinicalScope"><b>Clinical scope.</b> Dose equivalents, monitoring recommendations and the summarized indications are teaching simplifications; they differ between national formularies and guidelines and are not a substitute for a current label or guideline.</li>
+    </ul>
+  </details>
+  <details class="refs">
+    <summary data-i18n="refs.title">Key references</summary>
+    <ol>
+      <li>Wang S, Che T, Levit A, Shoichet BK, Wacker D, Roth BL. Structure of the D2 dopamine receptor bound to the atypical antipsychotic drug risperidone. <i>Nature</i> 2018;555:269-273. (PDB 6CM4)</li>
+      <li>Fan L, Tan L, Chen Z, et al. Haloperidol bound D2 dopamine receptor structure inspired the discovery of subtype selective ligands. <i>Nat Commun</i> 2020;11:1074. (PDB 6LUQ)</li>
+      <li>Kapur S, Zipursky R, Jones C, Remington G, Houle S. Relationship between dopamine D2 occupancy, clinical response, and side effects: a double-blind PET study of first-episode schizophrenia. <i>Am J Psychiatry</i> 2000;157:514-520.</li>
+      <li>Farde L, Nordström AL, Wiesel FA, Pauli S, Halldin C, Sedvall G. Positron emission tomographic analysis of central D1 and D2 dopamine receptor occupancy in patients treated with classical neuroleptics and clozapine. <i>Arch Gen Psychiatry</i> 1992;49:538-544.</li>
+      <li>Kapur S, Seeman P. Does fast dissociation from the dopamine D2 receptor explain the action of atypical antipsychotics? <i>Am J Psychiatry</i> 2001;158:360-369.</li>
+      <li>Meltzer HY, Matsubara S, Lee JC. Classification of typical and atypical antipsychotic drugs on the basis of dopamine D-1, D-2 and serotonin2 pKi values. <i>J Pharmacol Exp Ther</i> 1989;251:238-246.</li>
+      <li>Howes OD, Kapur S. The dopamine hypothesis of schizophrenia: version III - the final common pathway. <i>Schizophr Bull</i> 2009;35:549-562.</li>
+      <li>Huhn M, Nikolakopoulou A, Schneider-Thoma J, et al. Comparative efficacy and tolerability of 32 oral antipsychotics for the acute treatment of adults with multi-episode schizophrenia: a systematic review and network meta-analysis. <i>Lancet</i> 2019;394:939-951.</li>
+      <li>Leucht S, Crippa A, Siafis S, Patel MX, Orsini N, Davis JM. Dose-response meta-analysis of antipsychotic drugs for acute schizophrenia. <i>Am J Psychiatry</i> 2020;177:342-353.</li>
+      <li>Gardner DM, Murphy AL, O'Donnell H, Centorrino F, Baldessarini RJ. International consensus study of antipsychotic dosing. <i>Am J Psychiatry</i> 2010;167:686-693.</li>
+      <li>Taipale H, Mittendorfer-Rutz E, Alexanderson K, et al. Antipsychotics and mortality in a nationwide cohort of 29,823 patients with schizophrenia. <i>Schizophr Res</i> 2018;197:274-280.</li>
+      <li>Hall H, Sedvall G, Magnusson O, Kopp J, Halldin C, Farde L. Distribution of D1- and D2-dopamine receptors, and dopamine and its metabolites in the human brain. <i>Neuropsychopharmacology</i> 1994;11:245-256.</li>
+      <li>Pazos A, Probst A, Palacios JM. Serotonin receptors in the human brain. <i>Neuroscience</i> 1987;21:97-122.</li>
+      <li>Fischl B, Sereno MI, Tootell RBH, Dale AM. High-resolution intersubject averaging and a coordinate system for the cortical surface. <i>Hum Brain Mapp</i> 1999;8:272-284. (fsaverage)</li>
+      <li>Fonov V, Evans AC, Botteron K, Almli CR, McKinstry RC, Collins DL. Unbiased average age-appropriate atlases for pediatric studies. <i>NeuroImage</i> 2011;54:313-327. (MNI152 2009c)</li>
+      <li>Ciric R, Thompson WH, Lorenz R, et al. TemplateFlow: FAIR-sharing of multi-scale, multi-species brain models. <i>Nat Methods</i> 2022;19:1568-1571.</li>
+    </ol>
+  </details>
+  <details class="refs">
+    <summary data-i18n="credits.title">Libraries &amp; data sources</summary>
+    <ul>
+      <li data-i18n="credits.libraries"><b>Libraries:</b> Plotly.js (plots), 3Dmol.js (receptor structure), three.js (3D brain), RDKit (2D chemical structures, rendered when building the site), KaTeX (equations).</li>
+      <li data-i18n="credits.data"><b>Data:</b> all drug, molecular, receptor, regional and model data used by the app are kept in one file, <a href="assets/data/properties.json">assets/data/properties.json</a>, and can be browsed in the searchable <a href="properties.html">data tables</a>, together with the source of each value.</li>
+      <li data-i18n="credits.structureData"><b>Structure data:</b> RCSB Protein Data Bank, entries 6CM4, 6LUQ and 8U02.</li>
+      <li data-i18n="credits.brainModels"><b>Brain models:</b> FreeSurfer fsaverage and the ICBM 152 2009c template (© 1993-2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University), via TemplateFlow.</li>
+    </ul>
+  </details>
+  <div class="footer-meta">
+    <p><span data-i18n="footer.disclaimer">For education only. Models are simplified and parameters approximate; not intended to guide clinical decisions.</span> <span class="ai-notice" data-i18n="footer.aiNotice">Developed with the assistance of generative AI (Claude, Anthropic) for code, data checks and translation; content selected, verified against the cited sources and maintained by the author.</span></p>
+    <p class="copyright">© <span id="copyright-year">2026</span> <a href="https://github.com/impressio" target="_blank" rel="noopener">impressio</a><span class="sep" aria-hidden="true">·</span><a href="https://github.com/impressio/Antipsychotics" target="_blank" rel="noopener" data-i18n="footer.sourceCode">source code</a></p>
+  </div>
+  <script>(() => { const y = new Date().getFullYear(); document.getElementById('copyright-year').textContent = y > 2026 ? `2026-${y}` : '2026'; })();</script>
+</footer>
+
+<script src="js/tex.js" defer></script>
+<script src="js/model-files.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/models.js" defer></script>
+<script src="js/receptor.js" defer></script>
+<script src="js/substrates.js" defer></script>
+<script src="js/routes.js" defer></script>
+<script src="js/brain3d.js" defer></script>
+<script src="js/distribution.js" defer></script>
+<script src="js/pd.js" defer></script>
+<script src="js/pk.js" defer></script>
+<script src="js/structure.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+{
+ "units": "positions int16 in 0.01 mm, centered on the cortex bounding box; fsaverage (RAS) axes",
+ "encoding": "gzip; per array: delta coding (positions per axis, int16 wrap; indices zigzag uint32; sulc uint8 wrap), stored as byte planes starting at the given offset",
+ "sources": "TemplateFlow: fsaverage (den-41k pial, sulc); MNI152NLin2009cAsym res-02 aseg; see NOTICE",
+ "mniToModel": {
+  "scale": [
+   0.9781,
+   0.97247,
+   0.96555
+  ],
+  "shift": [
+   -0.257,
+   16.749,
+   -13.738
+  ]
+ },
+ "meshes": [
+  {
+   "name": "ctx-L",
+   "region": "ctx",
+   "hemi": "L",
+   "nv": 40962,
+   "nf": 81920,
+   "pos": 0,
+   "idx": 245772,
+   "sulc": 1228812
+  },
+  {
+   "name": "ctx-R",
+   "region": "ctx",
+   "hemi": "R",
+   "nv": 40962,
+   "nf": 81920,
+   "pos": 1269774,
+   "idx": 1515546,
+   "sulc": 2498586
+  },
+  {
+   "name": "tha-L",
+   "region": "tha",
+   "hemi": "L",
+   "nv": 4036,
+   "nf": 8068,
+   "pos": 2539548,
+   "idx": 2563764
+  },
+  {
+   "name": "tha-R",
+   "region": "tha",
+   "hemi": "R",
+   "nv": 3804,
+   "nf": 7604,
+   "pos": 2660580,
+   "idx": 2683404
+  },
+  {
+   "name": "str-L",
+   "region": "str",
+   "hemi": "L",
+   "nv": 6473,
+   "nf": 12944,
+   "pos": 2774652,
+   "idx": 2813490
+  },
+  {
+   "name": "str-R",
+   "region": "str",
+   "hemi": "R",
+   "nv": 6516,
+   "nf": 13036,
+   "pos": 2968818,
+   "idx": 3007914
+  },
+  {
+   "name": "hip-L",
+   "region": "hip",
+   "hemi": "L",
+   "nv": 3672,
+   "nf": 7340,
+   "pos": 3164346,
+   "idx": 3186378
+  },
+  {
+   "name": "hip-R",
+   "region": "hip",
+   "hemi": "R",
+   "nv": 3664,
+   "nf": 7324,
+   "pos": 3274458,
+   "idx": 3296442
+  },
+  {
+   "name": "amy-L",
+   "region": "amy",
+   "hemi": "L",
+   "nv": 1406,
+   "nf": 2808,
+   "pos": 3384330,
+   "idx": 3392766
+  },
+  {
+   "name": "amy-R",
+   "region": "amy",
+   "hemi": "R",
+   "nv": 1482,
+   "nf": 2960,
+   "pos": 3426462,
+   "idx": 3435354
+  },
+  {
+   "name": "cb-L",
+   "region": "cb",
+   "hemi": "L",
+   "nv": 16834,
+   "nf": 33664,
+   "pos": 3470874,
+   "idx": 3571878
+  },
+  {
+   "name": "cb-R",
+   "region": "cb",
+   "hemi": "R",
+   "nv": 16696,
+   "nf": 33388,
+   "pos": 3975846,
+   "idx": 4076022
+  },
+  {
+   "name": "bs-M",
+   "region": "bs",
+   "hemi": "M",
+   "nv": 8904,
+   "nf": 17804,
+   "pos": 4476678,
+   "idx": 4530102
+  },
+  {
+   "name": "hyp-L",
+   "region": "hyp",
+   "hemi": "L",
+   "nv": 220,
+   "nf": 400,
+   "pos": 4743750,
+   "idx": 4745070
+  },
+  {
+   "name": "ob-L",
+   "region": "ob",
+   "hemi": "L",
+   "nv": 220,
+   "nf": 400,
+   "pos": 4749870,
+   "idx": 4751190
+  },
+  {
+   "name": "hyp-R",
+   "region": "hyp",
+   "hemi": "R",
+   "nv": 220,
+   "nf": 400,
+   "pos": 4755990,
+   "idx": 4757310
+  },
+  {
+   "name": "ob-R",
+   "region": "ob",
+   "hemi": "R",
+   "nv": 220,
+   "nf": 400,
+   "pos": 4762110,
+   "idx": 4763430
+  },
+  {
+   "name": "sc-M",
+   "region": "sc",
+   "hemi": "M",
+   "nv": 290,
+   "nf": 576,
+   "pos": 4768230,
+   "idx": 4769970
+  },
+  {
+   "name": "pit-M",
+   "region": "pit",
+   "hemi": "M",
+   "nv": 220,
+   "nf": 400,
+   "pos": 4776882,
+   "idx": 4778202
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+__pycache__/
+tools/.templateflow-cache/
+tools/.pdb-cache/
+tools/.venv/
+tools/.sources-cache/
+manuscript/

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="figma">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data tables · Antipsychotics &amp; the D2 receptor</title>
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32 48x48 64x64" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <meta name="description" content="Searchable tables of the molecular and drug properties used by the antipsychotics app, with the source of each value." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/theme-figma.css" />
+  <link rel="stylesheet" href="css/properties.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="AP·D2, back to the app" data-i18n-aria-label="data.homeLabel">
+    <svg viewBox="0 0 40 40" class="brand-logo" aria-hidden="true">
+      <g transform="translate(20 20)">
+        <circle r="5.4" cx="0" cy="-11.5" fill="#74C0FC"/>
+        <circle r="5.4" cx="9" cy="-7.2" fill="#4DABF7"/>
+        <circle r="5.4" cx="11.5" cy="2.6" fill="#3B6FD8"/>
+        <circle r="5.4" cx="4" cy="10.8" fill="#A5D8FF"/>
+        <circle r="5.4" cx="-6.2" cy="9.8" fill="#1C7ED6"/>
+        <circle r="5.4" cx="-11.5" cy="1" fill="#5F3DC4"/>
+        <circle r="5.4" cx="-7" cy="-8.4" fill="#9775FA"/>
+        <circle r="3.1" fill="#E67700"/>
+      </g>
+    </svg>
+    <span>AP<span class="brand-light">·D<sub>2</sub></span></span>
+  </a>
+  <nav>
+    <a href="index.html" data-i18n="data.backToApp">Back to the app</a>
+  </nav>
+  <div class="settings">
+    <button type="button" class="settings-toggle" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel" title="Language, values and units" data-i18n-title="settings.button">EN · US</button>
+    <div class="settings-panel" id="settings-panel" hidden>
+      <div class="settings-group">
+        <span class="settings-label" data-i18n="settings.language">Language</span>
+        <div class="seg" role="group" aria-label="Language" data-i18n-aria-label="settings.language">
+          <button type="button" data-setting="lang" data-value="en" lang="en">English</button>
+          <button type="button" data-setting="lang" data-value="sv" lang="sv">Svenska</button>
+        </div>
+      </div>
+      <div class="settings-group">
+        <span class="settings-label" data-i18n="settings.region">Values and units</span>
+        <div class="seg" role="group" aria-label="Values and units" data-i18n-aria-label="settings.region">
+          <button type="button" data-setting="region" data-value="us" title="US: FDA prescribing information, US brand names, ng/mL" data-i18n-title="settings.us">US</button>
+          <button type="button" data-setting="region" data-value="eu" title="EU: EU product information as published in FASS (Sweden), Swedish product names, µg/L" data-i18n-title="settings.eu">EU</button>
+          <button type="button" data-setting="region" data-value="se" title="SE: EU product information as published in FASS (Sweden), Swedish product names, nmol/L" data-i18n-title="settings.se">SE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section props-head">
+    <h1 data-i18n="data.title">Molecular, drug and model data</h1>
+    <p data-i18n="data.intro">All data used and shown by the app, read from one source file, <a href="assets/data/properties.json">assets/data/properties.json</a>. Correcting a value there updates the app and these tables. Values are rounded figures for teaching; the last tables list the source of each value, its verification status, the references and a validation of the pharmacokinetic model against published data.</p>
+  </section>
+
+  <div class="card props-controls">
+    <div class="search-box">
+      <input type="search" id="props-search" placeholder="Search drugs, receptors, routes, metabolites, enzymes or values" aria-label="Search all tables" data-i18n-aria-label="data.searchLabel" data-i18n-placeholder="data.searchPlaceholder" />
+    </div>
+    <label><span data-i18n="data.drugLabel">Drug</span> <select id="props-drug"><option value="" data-i18n="data.allDrugs">All drugs</option></select></label>
+    <div class="filter-pills" id="props-tables" role="group" aria-label="Tables to show" data-i18n-aria-label="data.tablesLabel"></div>
+  </div>
+
+  <div id="props-content"></div>
+  <p id="props-empty" class="muted" hidden data-i18n="data.noRows">No rows match the search and filters.</p>
+</main>
+
+<footer class="footer">
+  <div class="footer-meta">
+    <p><span data-i18n="footer.disclaimer">For education only. Models are simplified and parameters approximate; not intended to guide clinical decisions.</span> <span class="ai-notice" data-i18n="footer.aiNotice">Developed with the assistance of generative AI (Claude, Anthropic) for code, data checks and translation; content selected, verified against the cited sources and maintained by the author.</span></p>
+    <p class="copyright">© <span id="copyright-year">2026</span> <a href="https://github.com/impressio" target="_blank" rel="noopener">impressio</a><span class="sep" aria-hidden="true">·</span><a href="https://github.com/impressio/Antipsychotics" target="_blank" rel="noopener" data-i18n="footer.sourceCode">source code</a></p>
+  </div>
+  <script>(() => { const y = new Date().getFullYear(); document.getElementById('copyright-year').textContent = y > 2026 ? `2026-${y}` : '2026'; })();</script>
+</footer>
+
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8" integrity="sha384-cCVCZkAjYNxaYKbM8lsArLznDF/SvMFr1jcZrvOpSTCa0W40ZAdLzHCEulnUa5i7" crossorigin="anonymous" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/models.js" defer></script>
+<script src="js/properties.js" defer></script>
+</body>
+</html>
