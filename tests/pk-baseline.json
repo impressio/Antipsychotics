@@ -1,0 +1,1432 @@
+{
+ "us/haloperidol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 2.1024,
+  "tmax": 4.32,
+  "cavg": 3.4345,
+  "cmin": 2.4695,
+  "cmaxSS": 4.3149,
+  "t95": 5
+ },
+ "us/haloperidol/im/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.4456,
+  "tmax": 1.26,
+  "cavg": 5.1456,
+  "cmin": 3.5965,
+  "cmaxSS": 6.924,
+  "t95": 5
+ },
+ "us/haloperidol/iv/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.9683,
+  "tmax": 0,
+  "cavg": 5.7243,
+  "cmin": 3.9678,
+  "cmaxSS": 7.9355,
+  "t95": 5
+ },
+ "us/haloperidol/lai/-": {
+  "dose": 100,
+  "tau": 672,
+  "cmax": 3.2185,
+  "tmax": 153,
+  "cavg": 4.0813,
+  "cmin": 2.7401,
+  "cmaxSS": 5.4732,
+  "t95": 4
+ },
+ "us/chlorpromazine/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 19.285,
+  "tmax": 4.575,
+  "cavg": 77.268,
+  "cmin": 69.038,
+  "cmaxSS": 83.052,
+  "t95": 11
+ },
+ "us/chlorpromazine/im/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 61.902,
+  "tmax": 1.65,
+  "cavg": 231.8,
+  "cmin": 202.7,
+  "cmaxSS": 258.41,
+  "t95": 11
+ },
+ "us/fluphenazine/oral/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 0.23578,
+  "tmax": 4.1625,
+  "cavg": 0.51517,
+  "cmin": 0.41261,
+  "cmaxSS": 0.58829,
+  "t95": 6
+ },
+ "us/fluphenazine/im/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 6.0222,
+  "tmax": 1.425,
+  "cavg": 11.591,
+  "cmin": 8.8079,
+  "cmaxSS": 14.336,
+  "t95": 6
+ },
+ "us/fluphenazine/lai/-": {
+  "dose": 25,
+  "tau": 504,
+  "cmax": 2.0325,
+  "tmax": 62.3,
+  "cavg": 1.5328,
+  "cmin": 0.66082,
+  "cmaxSS": 2.5777,
+  "t95": 2
+ },
+ "us/clozapine/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 296.64,
+  "tmax": 2.52,
+  "cavg": 494.63,
+  "cmin": 358.8,
+  "cmaxSS": 612.72,
+  "t95": 5
+ },
+ "us/clozapine/odt/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 287.87,
+  "tmax": 3.015,
+  "cavg": 494.63,
+  "cmin": 363.87,
+  "cmaxSS": 600.73,
+  "t95": 5
+ },
+ "us/olanzapine/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.4591,
+  "tmax": 6,
+  "cavg": 15.455,
+  "cmin": 12.07,
+  "cmaxSS": 18.19,
+  "t95": 6
+ },
+ "us/olanzapine/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.5232,
+  "tmax": 5.625,
+  "cavg": 15.455,
+  "cmin": 12.026,
+  "cmaxSS": 18.287,
+  "t95": 6
+ },
+ "us/olanzapine/im/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 14.113,
+  "tmax": 0.5,
+  "cavg": 25.721,
+  "cmin": 19.309,
+  "cmaxSS": 33.21,
+  "t95": 6
+ },
+ "us/olanzapine/lai/-": {
+  "dose": 405,
+  "tau": 672,
+  "cmax": 11.758,
+  "tmax": 144.4,
+  "cavg": 20.837,
+  "cmin": 15.502,
+  "cmaxSS": 25.488,
+  "t95": 5
+ },
+ "us/quetiapine/oral/ir": {
+  "dose": 300,
+  "tau": 12,
+  "cmax": 268.13,
+  "tmax": 1.56,
+  "cavg": 231.76,
+  "cmin": 113.9,
+  "cmaxSS": 364.09,
+  "t95": 3
+ },
+ "us/quetiapine/oral/xr": {
+  "dose": 600,
+  "tau": 24,
+  "cmax": 320.86,
+  "tmax": 6.03,
+  "cavg": 231.86,
+  "cmin": 80.912,
+  "cmaxSS": 363.81,
+  "t95": 2
+ },
+ "us/risperidone/oral/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 14.267,
+  "tmax": 1.05,
+  "cavg": 28.013,
+  "cmin": 21.28,
+  "cmaxSS": 35.944,
+  "t95": 8
+ },
+ "us/risperidone/odt/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 13.715,
+  "tmax": 1.2075,
+  "cavg": 28.013,
+  "cmin": 21.365,
+  "cmaxSS": 35.473,
+  "t95": 8
+ },
+ "us/risperidone/lai/consta": {
+  "dose": 25,
+  "tau": 336,
+  "cmax": 2.7582,
+  "tmax": 1008,
+  "cavg": 17.819,
+  "cmin": 13.41,
+  "cmaxSS": 22.397,
+  "t95": 4
+ },
+ "us/risperidone/lai/rykindo": {
+  "dose": 25,
+  "tau": 336,
+  "cmax": 3.0837,
+  "tmax": 600.05,
+  "cavg": 17.794,
+  "cmin": 13.972,
+  "cmaxSS": 21.594,
+  "t95": 3
+ },
+ "us/risperidone/lai/perseris": {
+  "dose": 90,
+  "tau": 672,
+  "cmax": 7.3896,
+  "tmax": 8.5,
+  "cavg": 17.986,
+  "cmin": 7.534,
+  "cmaxSS": 27.798,
+  "t95": 2
+ },
+ "us/risperidone/lai/uzedy": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 6.0861,
+  "tmax": 8.4,
+  "cavg": 20.879,
+  "cmin": 13.457,
+  "cmaxSS": 26.771,
+  "t95": 3
+ },
+ "us/paliperidone/oral/-": {
+  "dose": 6,
+  "tau": 24,
+  "cmax": 5.8294,
+  "tmax": 23.977,
+  "cavg": 16.588,
+  "cmin": 15.313,
+  "cmaxSS": 17.255,
+  "t95": 6
+ },
+ "us/paliperidone/lai/sustenna": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 14.504,
+  "tmax": 293.15,
+  "cavg": 26.346,
+  "cmin": 21.745,
+  "cmaxSS": 31.201,
+  "t95": 5
+ },
+ "us/paliperidone/lai/trinza": {
+  "dose": 263,
+  "tau": 2184,
+  "cmax": 13.572,
+  "tmax": 782.4,
+  "cavg": 28.509,
+  "cmin": 23.844,
+  "cmaxSS": 33.433,
+  "t95": 6
+ },
+ "us/paliperidone/lai/hafyera": {
+  "dose": 700,
+  "tau": 4368,
+  "cmax": 42.568,
+  "tmax": 775.2,
+  "cavg": 37.95,
+  "cmin": 21.242,
+  "cmaxSS": 59.579,
+  "t95": 3
+ },
+ "us/paliperidone/lai/erzofri": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 14.981,
+  "tmax": 421.4,
+  "cavg": 26.41,
+  "cmin": 22.924,
+  "cmaxSS": 29.948,
+  "t95": 5
+ },
+ "us/ziprasidone/oral/-": {
+  "dose": 40,
+  "tau": 12,
+  "cmax": 66.185,
+  "tmax": 6.965,
+  "cavg": 111,
+  "cmin": 88.456,
+  "cmaxSS": 123.89,
+  "t95": 4
+ },
+ "us/ziprasidone/im/-": {
+  "dose": 20,
+  "tau": 4,
+  "cmax": 97.812,
+  "tmax": 1.1725,
+  "cavg": 277.25,
+  "cmin": 233.61,
+  "cmaxSS": 310.5,
+  "t95": 8
+ },
+ "us/lurasidone/oral/-": {
+  "dose": 80,
+  "tau": 24,
+  "cmax": 12.156,
+  "tmax": 2.025,
+  "cavg": 14.212,
+  "cmin": 8.812,
+  "cmaxSS": 20.353,
+  "t95": 4
+ },
+ "us/amisulpride/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 198.53,
+  "tmax": 3.03,
+  "cavg": 340.95,
+  "cmin": 250.7,
+  "cmaxSS": 414.08,
+  "t95": 5
+ },
+ "us/amisulpride/iv/-": {
+  "dose": 10,
+  "tau": 12,
+  "cmax": 24.631,
+  "tmax": 0,
+  "cavg": 35.553,
+  "cmin": 24.657,
+  "cmaxSS": 49.237,
+  "t95": 5
+ },
+ "us/aripiprazole/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 24.423,
+  "tmax": 4.2,
+  "cavg": 160.15,
+  "cmin": 148.6,
+  "cmaxSS": 170.04,
+  "t95": 19
+ },
+ "us/aripiprazole/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 23.76,
+  "tmax": 7.2,
+  "cavg": 160.15,
+  "cmin": 149.43,
+  "cmaxSS": 168.25,
+  "t95": 19
+ },
+ "us/aripiprazole/im/-": {
+  "dose": 9.75,
+  "tau": 2,
+  "cmax": 27.904,
+  "tmax": 2.1,
+  "cavg": 2153.2,
+  "cmin": 2143.9,
+  "cmaxSS": 2158.8,
+  "t95": 218
+ },
+ "us/aripiprazole/lai/maintena": {
+  "dose": 400,
+  "tau": 672,
+  "cmax": 184.01,
+  "tmax": 188.1,
+  "cavg": 377.74,
+  "cmin": 276.81,
+  "cmaxSS": 451.93,
+  "t95": 5
+ },
+ "us/aripiprazole/lai/asimtufii": {
+  "dose": 960,
+  "tau": 1344,
+  "cmax": 239.84,
+  "tmax": 1212.2,
+  "cavg": 371.56,
+  "cmin": 331.07,
+  "cmaxSS": 418.87,
+  "t95": 2
+ },
+ "us/aripiprazole/lai/aristada": {
+  "dose": 450,
+  "tau": 672,
+  "cmax": 74.049,
+  "tmax": 945.7,
+  "cavg": 295.42,
+  "cmin": 293.46,
+  "cmaxSS": 297.52,
+  "t95": 8
+ },
+ "us/brexpiprazole/oral/-": {
+  "dose": 2,
+  "tau": 24,
+  "cmax": 16.88,
+  "tmax": 3.9,
+  "cavg": 95.146,
+  "cmin": 87.221,
+  "cmaxSS": 102.07,
+  "t95": 17
+ },
+ "us/cariprazine/oral/-": {
+  "dose": 3,
+  "tau": 24,
+  "cmax": 1.605,
+  "tmax": 4.4,
+  "cavg": 28.572,
+  "cmin": 27.816,
+  "cmaxSS": 29.205,
+  "t95": 62
+ },
+ "us/xanomeline/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 5.3614,
+  "tmax": 2.0375,
+  "cavg": 4.2732,
+  "cmin": 1.881,
+  "cmaxSS": 6.7999,
+  "t95": 2
+ },
+ "us/flupentixol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 1.854,
+  "tmax": 4.4625,
+  "cavg": 4.2627,
+  "cmin": 3.4079,
+  "cmaxSS": 5.0138,
+  "t95": 7
+ },
+ "us/flupentixol/lai/-": {
+  "dose": 40,
+  "tau": 504,
+  "cmax": 4.0938,
+  "tmax": 116,
+  "cavg": 4.0515,
+  "cmin": 2.1905,
+  "cmaxSS": 5.7175,
+  "t95": 3
+ },
+ "us/perphenazine/oral/-": {
+  "dose": 8,
+  "tau": 8,
+  "cmax": 0.65047,
+  "tmax": 1.995,
+  "cavg": 1.4056,
+  "cmin": 1.1105,
+  "cmaxSS": 1.6443,
+  "t95": 6
+ },
+ "us/perphenazine/lai/-": {
+  "dose": 108,
+  "tau": 504,
+  "cmax": 0.6112,
+  "tmax": 68.4,
+  "cavg": 1.5917,
+  "cmin": 1.3105,
+  "cmaxSS": 1.8624,
+  "t95": 8
+ },
+ "us/zuclopenthixol/oral/-": {
+  "dose": 20,
+  "tau": 24,
+  "cmax": 5.4733,
+  "tmax": 4,
+  "cavg": 7.5564,
+  "cmin": 5.0554,
+  "cmaxSS": 9.9358,
+  "t95": 4
+ },
+ "us/zuclopenthixol/im/-": {
+  "dose": 100,
+  "tau": 72,
+  "cmax": 38.86,
+  "tmax": 33.865,
+  "cavg": 28.604,
+  "cmin": 14.416,
+  "cmaxSS": 43.516,
+  "t95": 2
+ },
+ "us/zuclopenthixol/lai/-": {
+  "dose": 200,
+  "tau": 336,
+  "cmax": 4.9612,
+  "tmax": 97.35,
+  "cavg": 12.261,
+  "cmin": 10.05,
+  "cmaxSS": 13.967,
+  "t95": 7
+ },
+ "us/sertindole/oral/-": {
+  "dose": 16,
+  "tau": 24,
+  "cmax": 10.387,
+  "tmax": 10,
+  "cavg": 49.448,
+  "cmin": 45.094,
+  "cmaxSS": 52.442,
+  "t95": 14
+ },
+ "us/milsaperidone/oral/-": {
+  "dose": 12,
+  "tau": 12,
+  "cmax": 5.75,
+  "tmax": 3.965,
+  "cavg": 19.99,
+  "cmin": 17.473,
+  "cmaxSS": 21.834,
+  "t95": 10
+ },
+ "eu/haloperidol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 2.1024,
+  "tmax": 4.32,
+  "cavg": 3.4345,
+  "cmin": 2.4695,
+  "cmaxSS": 4.3149,
+  "t95": 5
+ },
+ "eu/haloperidol/im/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.4456,
+  "tmax": 1.26,
+  "cavg": 5.1456,
+  "cmin": 3.5965,
+  "cmaxSS": 6.924,
+  "t95": 5
+ },
+ "eu/haloperidol/iv/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.9683,
+  "tmax": 0,
+  "cavg": 5.7243,
+  "cmin": 3.9678,
+  "cmaxSS": 7.9355,
+  "t95": 5
+ },
+ "eu/haloperidol/lai/-": {
+  "dose": 100,
+  "tau": 672,
+  "cmax": 3.2185,
+  "tmax": 153,
+  "cavg": 4.0813,
+  "cmin": 2.7401,
+  "cmaxSS": 5.4732,
+  "t95": 4
+ },
+ "eu/chlorpromazine/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 19.285,
+  "tmax": 4.575,
+  "cavg": 77.268,
+  "cmin": 69.038,
+  "cmaxSS": 83.052,
+  "t95": 11
+ },
+ "eu/chlorpromazine/im/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 61.902,
+  "tmax": 1.65,
+  "cavg": 231.8,
+  "cmin": 202.7,
+  "cmaxSS": 258.41,
+  "t95": 11
+ },
+ "eu/fluphenazine/oral/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 0.23578,
+  "tmax": 4.1625,
+  "cavg": 0.51517,
+  "cmin": 0.41261,
+  "cmaxSS": 0.58829,
+  "t95": 6
+ },
+ "eu/fluphenazine/im/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 6.0222,
+  "tmax": 1.425,
+  "cavg": 11.591,
+  "cmin": 8.8079,
+  "cmaxSS": 14.336,
+  "t95": 6
+ },
+ "eu/fluphenazine/lai/-": {
+  "dose": 25,
+  "tau": 504,
+  "cmax": 2.0325,
+  "tmax": 62.3,
+  "cavg": 1.5328,
+  "cmin": 0.66082,
+  "cmaxSS": 2.5777,
+  "t95": 2
+ },
+ "eu/clozapine/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 296.64,
+  "tmax": 2.52,
+  "cavg": 494.63,
+  "cmin": 358.8,
+  "cmaxSS": 612.72,
+  "t95": 5
+ },
+ "eu/clozapine/odt/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 287.87,
+  "tmax": 3.015,
+  "cavg": 494.63,
+  "cmin": 363.87,
+  "cmaxSS": 600.73,
+  "t95": 5
+ },
+ "eu/olanzapine/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.4591,
+  "tmax": 6,
+  "cavg": 15.455,
+  "cmin": 12.07,
+  "cmaxSS": 18.19,
+  "t95": 6
+ },
+ "eu/olanzapine/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.5232,
+  "tmax": 5.625,
+  "cavg": 15.455,
+  "cmin": 12.026,
+  "cmaxSS": 18.287,
+  "t95": 6
+ },
+ "eu/olanzapine/im/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 14.113,
+  "tmax": 0.5,
+  "cavg": 25.721,
+  "cmin": 19.309,
+  "cmaxSS": 33.21,
+  "t95": 6
+ },
+ "eu/olanzapine/lai/-": {
+  "dose": 405,
+  "tau": 672,
+  "cmax": 11.758,
+  "tmax": 144.4,
+  "cavg": 20.837,
+  "cmin": 15.502,
+  "cmaxSS": 25.488,
+  "t95": 5
+ },
+ "eu/quetiapine/oral/ir": {
+  "dose": 300,
+  "tau": 12,
+  "cmax": 234.2,
+  "tmax": 1.65,
+  "cavg": 231.76,
+  "cmin": 127.24,
+  "cmaxSS": 343.52,
+  "t95": 3
+ },
+ "eu/quetiapine/oral/xr": {
+  "dose": 600,
+  "tau": 24,
+  "cmax": 291.39,
+  "tmax": 6.42,
+  "cavg": 231.86,
+  "cmin": 95.174,
+  "cmaxSS": 344.73,
+  "t95": 2
+ },
+ "eu/risperidone/oral/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 14.263,
+  "tmax": 1.02,
+  "cavg": 28.011,
+  "cmin": 21.465,
+  "cmaxSS": 36.031,
+  "t95": 9
+ },
+ "eu/risperidone/odt/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 13.714,
+  "tmax": 1.2,
+  "cavg": 28.011,
+  "cmin": 21.544,
+  "cmaxSS": 35.547,
+  "t95": 9
+ },
+ "eu/risperidone/lai/consta": {
+  "dose": 25,
+  "tau": 336,
+  "cmax": 2.7582,
+  "tmax": 1008,
+  "cavg": 17.82,
+  "cmin": 13.54,
+  "cmaxSS": 22.269,
+  "t95": 4
+ },
+ "eu/risperidone/lai/okedi": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 9.1896,
+  "tmax": 4.6,
+  "cavg": 22.762,
+  "cmin": 14.408,
+  "cmaxSS": 34.088,
+  "t95": 3
+ },
+ "eu/paliperidone/oral/-": {
+  "dose": 6,
+  "tau": 24,
+  "cmax": 5.8294,
+  "tmax": 23.977,
+  "cavg": 16.588,
+  "cmin": 15.313,
+  "cmaxSS": 17.255,
+  "t95": 6
+ },
+ "eu/paliperidone/lai/sustenna": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 14.504,
+  "tmax": 293.15,
+  "cavg": 26.346,
+  "cmin": 21.745,
+  "cmaxSS": 31.201,
+  "t95": 5
+ },
+ "eu/paliperidone/lai/trinza": {
+  "dose": 263,
+  "tau": 2184,
+  "cmax": 13.572,
+  "tmax": 782.4,
+  "cavg": 28.509,
+  "cmin": 23.844,
+  "cmaxSS": 33.433,
+  "t95": 6
+ },
+ "eu/paliperidone/lai/hafyera": {
+  "dose": 700,
+  "tau": 4368,
+  "cmax": 42.568,
+  "tmax": 775.2,
+  "cavg": 37.95,
+  "cmin": 21.242,
+  "cmaxSS": 59.579,
+  "t95": 3
+ },
+ "eu/ziprasidone/oral/-": {
+  "dose": 40,
+  "tau": 12,
+  "cmax": 68.606,
+  "tmax": 6.7815,
+  "cavg": 111.01,
+  "cmin": 87.227,
+  "cmaxSS": 124.68,
+  "t95": 3
+ },
+ "eu/ziprasidone/im/-": {
+  "dose": 20,
+  "tau": 4,
+  "cmax": 103.2,
+  "tmax": 1.155,
+  "cavg": 277.49,
+  "cmin": 231.4,
+  "cmaxSS": 312.84,
+  "t95": 8
+ },
+ "eu/lurasidone/oral/-": {
+  "dose": 74,
+  "tau": 24,
+  "cmax": 6.9203,
+  "tmax": 2.25,
+  "cavg": 13.145,
+  "cmin": 9.9501,
+  "cmaxSS": 16.419,
+  "t95": 6
+ },
+ "eu/amisulpride/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 198.53,
+  "tmax": 3.03,
+  "cavg": 340.95,
+  "cmin": 250.7,
+  "cmaxSS": 414.08,
+  "t95": 5
+ },
+ "eu/amisulpride/iv/-": {
+  "dose": 10,
+  "tau": 12,
+  "cmax": 24.631,
+  "tmax": 0,
+  "cavg": 35.553,
+  "cmin": 24.657,
+  "cmaxSS": 49.237,
+  "t95": 5
+ },
+ "eu/aripiprazole/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 24.423,
+  "tmax": 4.2,
+  "cavg": 160.15,
+  "cmin": 148.6,
+  "cmaxSS": 170.04,
+  "t95": 19
+ },
+ "eu/aripiprazole/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 23.76,
+  "tmax": 7.2,
+  "cavg": 160.15,
+  "cmin": 149.43,
+  "cmaxSS": 168.25,
+  "t95": 19
+ },
+ "eu/aripiprazole/im/-": {
+  "dose": 9.75,
+  "tau": 2,
+  "cmax": 27.904,
+  "tmax": 2.1,
+  "cavg": 2153.2,
+  "cmin": 2143.9,
+  "cmaxSS": 2158.8,
+  "t95": 218
+ },
+ "eu/aripiprazole/lai/maintena": {
+  "dose": 400,
+  "tau": 672,
+  "cmax": 184.01,
+  "tmax": 188.1,
+  "cavg": 377.74,
+  "cmin": 276.81,
+  "cmaxSS": 451.93,
+  "t95": 5
+ },
+ "eu/brexpiprazole/oral/-": {
+  "dose": 2,
+  "tau": 24,
+  "cmax": 16.88,
+  "tmax": 3.9,
+  "cavg": 95.146,
+  "cmin": 87.221,
+  "cmaxSS": 102.07,
+  "t95": 17
+ },
+ "eu/cariprazine/oral/-": {
+  "dose": 3,
+  "tau": 24,
+  "cmax": 1.605,
+  "tmax": 4.4,
+  "cavg": 28.572,
+  "cmin": 27.816,
+  "cmaxSS": 29.205,
+  "t95": 62
+ },
+ "eu/xanomeline/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 5.3614,
+  "tmax": 2.0375,
+  "cavg": 4.2732,
+  "cmin": 1.881,
+  "cmaxSS": 6.7999,
+  "t95": 2
+ },
+ "eu/flupentixol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 1.854,
+  "tmax": 4.4625,
+  "cavg": 4.2627,
+  "cmin": 3.4079,
+  "cmaxSS": 5.0138,
+  "t95": 7
+ },
+ "eu/flupentixol/lai/-": {
+  "dose": 40,
+  "tau": 504,
+  "cmax": 4.0938,
+  "tmax": 116,
+  "cavg": 4.0515,
+  "cmin": 2.1905,
+  "cmaxSS": 5.7175,
+  "t95": 3
+ },
+ "eu/perphenazine/oral/-": {
+  "dose": 8,
+  "tau": 8,
+  "cmax": 0.65047,
+  "tmax": 1.995,
+  "cavg": 1.4056,
+  "cmin": 1.1105,
+  "cmaxSS": 1.6443,
+  "t95": 6
+ },
+ "eu/perphenazine/lai/-": {
+  "dose": 108,
+  "tau": 504,
+  "cmax": 0.6112,
+  "tmax": 68.4,
+  "cavg": 1.5917,
+  "cmin": 1.3105,
+  "cmaxSS": 1.8624,
+  "t95": 8
+ },
+ "eu/zuclopenthixol/oral/-": {
+  "dose": 20,
+  "tau": 24,
+  "cmax": 5.4733,
+  "tmax": 4,
+  "cavg": 7.5564,
+  "cmin": 5.0554,
+  "cmaxSS": 9.9358,
+  "t95": 4
+ },
+ "eu/zuclopenthixol/im/-": {
+  "dose": 100,
+  "tau": 72,
+  "cmax": 38.86,
+  "tmax": 33.865,
+  "cavg": 28.604,
+  "cmin": 14.416,
+  "cmaxSS": 43.516,
+  "t95": 2
+ },
+ "eu/zuclopenthixol/lai/-": {
+  "dose": 200,
+  "tau": 336,
+  "cmax": 4.9612,
+  "tmax": 97.35,
+  "cavg": 12.261,
+  "cmin": 10.05,
+  "cmaxSS": 13.967,
+  "t95": 7
+ },
+ "eu/sertindole/oral/-": {
+  "dose": 16,
+  "tau": 24,
+  "cmax": 10.387,
+  "tmax": 10,
+  "cavg": 49.448,
+  "cmin": 45.094,
+  "cmaxSS": 52.442,
+  "t95": 14
+ },
+ "eu/milsaperidone/oral/-": {
+  "dose": 12,
+  "tau": 12,
+  "cmax": 5.75,
+  "tmax": 3.965,
+  "cavg": 19.99,
+  "cmin": 17.473,
+  "cmaxSS": 21.834,
+  "t95": 10
+ },
+ "se/haloperidol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 2.1024,
+  "tmax": 4.32,
+  "cavg": 3.4345,
+  "cmin": 2.4695,
+  "cmaxSS": 4.3149,
+  "t95": 5
+ },
+ "se/haloperidol/im/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.4456,
+  "tmax": 1.26,
+  "cavg": 5.1456,
+  "cmin": 3.5965,
+  "cmaxSS": 6.924,
+  "t95": 5
+ },
+ "se/haloperidol/iv/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 3.9683,
+  "tmax": 0,
+  "cavg": 5.7243,
+  "cmin": 3.9678,
+  "cmaxSS": 7.9355,
+  "t95": 5
+ },
+ "se/haloperidol/lai/-": {
+  "dose": 100,
+  "tau": 672,
+  "cmax": 3.2185,
+  "tmax": 153,
+  "cavg": 4.0813,
+  "cmin": 2.7401,
+  "cmaxSS": 5.4732,
+  "t95": 4
+ },
+ "se/chlorpromazine/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 19.285,
+  "tmax": 4.575,
+  "cavg": 77.268,
+  "cmin": 69.038,
+  "cmaxSS": 83.052,
+  "t95": 11
+ },
+ "se/chlorpromazine/im/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 61.902,
+  "tmax": 1.65,
+  "cavg": 231.8,
+  "cmin": 202.7,
+  "cmaxSS": 258.41,
+  "t95": 11
+ },
+ "se/fluphenazine/oral/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 0.23578,
+  "tmax": 4.1625,
+  "cavg": 0.51517,
+  "cmin": 0.41261,
+  "cmaxSS": 0.58829,
+  "t95": 6
+ },
+ "se/fluphenazine/im/-": {
+  "dose": 5,
+  "tau": 12,
+  "cmax": 6.0222,
+  "tmax": 1.425,
+  "cavg": 11.591,
+  "cmin": 8.8079,
+  "cmaxSS": 14.336,
+  "t95": 6
+ },
+ "se/fluphenazine/lai/-": {
+  "dose": 25,
+  "tau": 504,
+  "cmax": 2.0325,
+  "tmax": 62.3,
+  "cavg": 1.5328,
+  "cmin": 0.66082,
+  "cmaxSS": 2.5777,
+  "t95": 2
+ },
+ "se/clozapine/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 296.64,
+  "tmax": 2.52,
+  "cavg": 494.63,
+  "cmin": 358.8,
+  "cmaxSS": 612.72,
+  "t95": 5
+ },
+ "se/clozapine/odt/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 287.87,
+  "tmax": 3.015,
+  "cavg": 494.63,
+  "cmin": 363.87,
+  "cmaxSS": 600.73,
+  "t95": 5
+ },
+ "se/olanzapine/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.4591,
+  "tmax": 6,
+  "cavg": 15.455,
+  "cmin": 12.07,
+  "cmaxSS": 18.19,
+  "t95": 6
+ },
+ "se/olanzapine/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 7.5232,
+  "tmax": 5.625,
+  "cavg": 15.455,
+  "cmin": 12.026,
+  "cmaxSS": 18.287,
+  "t95": 6
+ },
+ "se/olanzapine/im/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 14.113,
+  "tmax": 0.5,
+  "cavg": 25.721,
+  "cmin": 19.309,
+  "cmaxSS": 33.21,
+  "t95": 6
+ },
+ "se/olanzapine/lai/-": {
+  "dose": 405,
+  "tau": 672,
+  "cmax": 11.758,
+  "tmax": 144.4,
+  "cavg": 20.837,
+  "cmin": 15.502,
+  "cmaxSS": 25.488,
+  "t95": 5
+ },
+ "se/quetiapine/oral/ir": {
+  "dose": 300,
+  "tau": 12,
+  "cmax": 234.2,
+  "tmax": 1.65,
+  "cavg": 231.76,
+  "cmin": 127.24,
+  "cmaxSS": 343.52,
+  "t95": 3
+ },
+ "se/quetiapine/oral/xr": {
+  "dose": 600,
+  "tau": 24,
+  "cmax": 291.39,
+  "tmax": 6.42,
+  "cavg": 231.86,
+  "cmin": 95.174,
+  "cmaxSS": 344.73,
+  "t95": 2
+ },
+ "se/risperidone/oral/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 14.263,
+  "tmax": 1.02,
+  "cavg": 28.011,
+  "cmin": 21.465,
+  "cmaxSS": 36.031,
+  "t95": 9
+ },
+ "se/risperidone/odt/-": {
+  "dose": 2,
+  "tau": 12,
+  "cmax": 13.714,
+  "tmax": 1.2,
+  "cavg": 28.011,
+  "cmin": 21.544,
+  "cmaxSS": 35.547,
+  "t95": 9
+ },
+ "se/risperidone/lai/consta": {
+  "dose": 25,
+  "tau": 336,
+  "cmax": 2.7582,
+  "tmax": 1008,
+  "cavg": 17.82,
+  "cmin": 13.54,
+  "cmaxSS": 22.269,
+  "t95": 4
+ },
+ "se/risperidone/lai/okedi": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 9.1896,
+  "tmax": 4.6,
+  "cavg": 22.762,
+  "cmin": 14.408,
+  "cmaxSS": 34.088,
+  "t95": 3
+ },
+ "se/paliperidone/oral/-": {
+  "dose": 6,
+  "tau": 24,
+  "cmax": 5.8294,
+  "tmax": 23.977,
+  "cavg": 16.588,
+  "cmin": 15.313,
+  "cmaxSS": 17.255,
+  "t95": 6
+ },
+ "se/paliperidone/lai/sustenna": {
+  "dose": 75,
+  "tau": 672,
+  "cmax": 14.504,
+  "tmax": 293.15,
+  "cavg": 26.346,
+  "cmin": 21.745,
+  "cmaxSS": 31.201,
+  "t95": 5
+ },
+ "se/paliperidone/lai/trinza": {
+  "dose": 263,
+  "tau": 2184,
+  "cmax": 13.572,
+  "tmax": 782.4,
+  "cavg": 28.509,
+  "cmin": 23.844,
+  "cmaxSS": 33.433,
+  "t95": 6
+ },
+ "se/paliperidone/lai/hafyera": {
+  "dose": 700,
+  "tau": 4368,
+  "cmax": 42.568,
+  "tmax": 775.2,
+  "cavg": 37.95,
+  "cmin": 21.242,
+  "cmaxSS": 59.579,
+  "t95": 3
+ },
+ "se/ziprasidone/oral/-": {
+  "dose": 40,
+  "tau": 12,
+  "cmax": 68.606,
+  "tmax": 6.7815,
+  "cavg": 111.01,
+  "cmin": 87.227,
+  "cmaxSS": 124.68,
+  "t95": 3
+ },
+ "se/ziprasidone/im/-": {
+  "dose": 20,
+  "tau": 4,
+  "cmax": 103.2,
+  "tmax": 1.155,
+  "cavg": 277.49,
+  "cmin": 231.4,
+  "cmaxSS": 312.84,
+  "t95": 8
+ },
+ "se/lurasidone/oral/-": {
+  "dose": 74,
+  "tau": 24,
+  "cmax": 6.9203,
+  "tmax": 2.25,
+  "cavg": 13.145,
+  "cmin": 9.9501,
+  "cmaxSS": 16.419,
+  "t95": 6
+ },
+ "se/amisulpride/oral/-": {
+  "dose": 200,
+  "tau": 12,
+  "cmax": 198.53,
+  "tmax": 3.03,
+  "cavg": 340.95,
+  "cmin": 250.7,
+  "cmaxSS": 414.08,
+  "t95": 5
+ },
+ "se/amisulpride/iv/-": {
+  "dose": 10,
+  "tau": 12,
+  "cmax": 24.631,
+  "tmax": 0,
+  "cavg": 35.553,
+  "cmin": 24.657,
+  "cmaxSS": 49.237,
+  "t95": 5
+ },
+ "se/aripiprazole/oral/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 24.423,
+  "tmax": 4.2,
+  "cavg": 160.15,
+  "cmin": 148.6,
+  "cmaxSS": 170.04,
+  "t95": 19
+ },
+ "se/aripiprazole/odt/-": {
+  "dose": 10,
+  "tau": 24,
+  "cmax": 23.76,
+  "tmax": 7.2,
+  "cavg": 160.15,
+  "cmin": 149.43,
+  "cmaxSS": 168.25,
+  "t95": 19
+ },
+ "se/aripiprazole/im/-": {
+  "dose": 9.75,
+  "tau": 2,
+  "cmax": 27.904,
+  "tmax": 2.1,
+  "cavg": 2153.2,
+  "cmin": 2143.9,
+  "cmaxSS": 2158.8,
+  "t95": 218
+ },
+ "se/aripiprazole/lai/maintena": {
+  "dose": 400,
+  "tau": 672,
+  "cmax": 184.01,
+  "tmax": 188.1,
+  "cavg": 377.74,
+  "cmin": 276.81,
+  "cmaxSS": 451.93,
+  "t95": 5
+ },
+ "se/brexpiprazole/oral/-": {
+  "dose": 2,
+  "tau": 24,
+  "cmax": 16.88,
+  "tmax": 3.9,
+  "cavg": 95.146,
+  "cmin": 87.221,
+  "cmaxSS": 102.07,
+  "t95": 17
+ },
+ "se/cariprazine/oral/-": {
+  "dose": 3,
+  "tau": 24,
+  "cmax": 1.605,
+  "tmax": 4.4,
+  "cavg": 28.572,
+  "cmin": 27.816,
+  "cmaxSS": 29.205,
+  "t95": 62
+ },
+ "se/xanomeline/oral/-": {
+  "dose": 100,
+  "tau": 12,
+  "cmax": 5.3614,
+  "tmax": 2.0375,
+  "cavg": 4.2732,
+  "cmin": 1.881,
+  "cmaxSS": 6.7999,
+  "t95": 2
+ },
+ "se/flupentixol/oral/-": {
+  "dose": 5,
+  "tau": 24,
+  "cmax": 1.854,
+  "tmax": 4.4625,
+  "cavg": 4.2627,
+  "cmin": 3.4079,
+  "cmaxSS": 5.0138,
+  "t95": 7
+ },
+ "se/flupentixol/lai/-": {
+  "dose": 40,
+  "tau": 504,
+  "cmax": 4.0938,
+  "tmax": 116,
+  "cavg": 4.0515,
+  "cmin": 2.1905,
+  "cmaxSS": 5.7175,
+  "t95": 3
+ },
+ "se/perphenazine/oral/-": {
+  "dose": 8,
+  "tau": 8,
+  "cmax": 0.65047,
+  "tmax": 1.995,
+  "cavg": 1.4056,
+  "cmin": 1.1105,
+  "cmaxSS": 1.6443,
+  "t95": 6
+ },
+ "se/perphenazine/lai/-": {
+  "dose": 108,
+  "tau": 504,
+  "cmax": 0.6112,
+  "tmax": 68.4,
+  "cavg": 1.5917,
+  "cmin": 1.3105,
+  "cmaxSS": 1.8624,
+  "t95": 8
+ },
+ "se/zuclopenthixol/oral/-": {
+  "dose": 20,
+  "tau": 24,
+  "cmax": 5.4733,
+  "tmax": 4,
+  "cavg": 7.5564,
+  "cmin": 5.0554,
+  "cmaxSS": 9.9358,
+  "t95": 4
+ },
+ "se/zuclopenthixol/im/-": {
+  "dose": 100,
+  "tau": 72,
+  "cmax": 38.86,
+  "tmax": 33.865,
+  "cavg": 28.604,
+  "cmin": 14.416,
+  "cmaxSS": 43.516,
+  "t95": 2
+ },
+ "se/zuclopenthixol/lai/-": {
+  "dose": 200,
+  "tau": 336,
+  "cmax": 4.9612,
+  "tmax": 97.35,
+  "cavg": 12.261,
+  "cmin": 10.05,
+  "cmaxSS": 13.967,
+  "t95": 7
+ },
+ "se/sertindole/oral/-": {
+  "dose": 16,
+  "tau": 24,
+  "cmax": 10.387,
+  "tmax": 10,
+  "cavg": 49.448,
+  "cmin": 45.094,
+  "cmaxSS": 52.442,
+  "t95": 14
+ },
+ "se/milsaperidone/oral/-": {
+  "dose": 12,
+  "tau": 12,
+  "cmax": 5.75,
+  "tmax": 3.965,
+  "cavg": 19.99,
+  "cmin": 17.473,
+  "cmaxSS": 21.834,
+  "t95": 10
+ }
+}

@@ -1,0 +1,2 @@
+2D chemical structure drawings (<drug>.svg), drawn with RDKit (https://www.rdkit.org, BSD license)
+by tools/build_structures.py from the SMILES strings in js/data.js.

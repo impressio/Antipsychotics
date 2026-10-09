@@ -1,0 +1,216 @@
+/* =====================================================================
+ * theme-figma.css - the app's interface design, modeled on Figma's UI3
+ *
+ * Layered on top of styles.css (the base layout and component styles) and
+ * scoped under <html data-theme="figma">, which index.html sets permanently.
+ * Data colors (subunits, drugs, ions) are defined in styles.css.
+ *
+ * Figma conventions used: #f5f5f5 canvas, flat white frames with 1px
+ * borders, 32px controls, filled-gray inputs with a 1px blue focus ring,
+ * segmented controls, semibold (600) rather than heavy type, and Figma
+ * blue (#0d99ff) reserved for selection.
+ * ===================================================================== */
+
+html[data-theme="figma"] {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --ink: #1e1e1e;
+  --muted: #757575;
+  --line: #e6e6e6;
+  --accent: #0d99ff;
+  --accent-hover: #007be5;
+  --select-tint: #e5f4ff;
+  --fill: #f5f5f5;
+  --radius: 8px;
+  --shadow: none;
+  --float-shadow: 0 2px 5px rgba(0, 0, 0, .06), 0 6px 18px rgba(0, 0, 0, .08);
+}
+
+/* ───────── Base type: semibold, compact ───────── */
+[data-theme="figma"] body { font-size: var(--fs-body); line-height: 1.5; letter-spacing: -0.003em; }
+[data-theme="figma"] h1, [data-theme="figma"] h2, [data-theme="figma"] h3, [data-theme="figma"] h4 { font-weight: 600; letter-spacing: -0.01em; }
+[data-theme="figma"] h3 { font-size: var(--fs-h3); line-height: 1.4; }
+[data-theme="figma"] b, [data-theme="figma"] strong { font-weight: 600; }
+[data-theme="figma"] a { color: var(--accent); text-decoration: none; }
+[data-theme="figma"] a:hover { text-decoration: none; font-weight: 600; }
+
+/* ───────── Top bar (UI3 light toolbar) ───────── */
+[data-theme="figma"] .topbar {
+  height: 48px; padding: 0 1rem; background: #ffffff; backdrop-filter: none;
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="figma"] .brand, [data-theme="figma"] .brand:hover { font-size: var(--fs-body); font-weight: 600; color: var(--ink); text-decoration: none; }
+[data-theme="figma"] .brand-logo { width: 24px; height: 24px; }
+[data-theme="figma"] .topbar nav { gap: 2px; }
+[data-theme="figma"] .topbar nav a {
+  font-size: var(--fs-body); font-weight: 500; color: var(--ink);
+  padding: 6px 10px; border-radius: 6px;
+}
+[data-theme="figma"] .topbar nav a:hover { background: var(--fill); color: var(--ink); font-weight: 500; }
+[data-theme="figma"] .topbar nav a.active { background: var(--select-tint); color: var(--accent-hover); }
+[data-theme="figma"] .menu-toggle { font-size: var(--fs-body); font-weight: 500; border: 0; background: transparent; padding: 0 10px; color: var(--ink); }
+[data-theme="figma"] .menu-toggle:hover, [data-theme="figma"] .menu-toggle[aria-expanded="true"] { background: var(--fill); border: 0; color: var(--ink); }
+
+/* ───────── Hero: plain canvas ───────── */
+[data-theme="figma"] .hero { background: none; padding: 2.5rem 1.5rem .5rem; }
+[data-theme="figma"] .hero p:last-child { margin-bottom: 0; } /* hero text sits as close to section 1 as sections sit to each other */
+[data-theme="figma"] .hero h1 { font-weight: 600; font-size: var(--fs-display); }
+[data-theme="figma"] .eyebrow { color: var(--accent); font-size: var(--fs-body); font-weight: 600; letter-spacing: normal; }
+[data-theme="figma"] .lead { font-size: var(--fs-body); color: var(--ink); }
+[data-theme="figma"] .chip { border-radius: 4px; font-weight: 600; }
+
+/* ───────── Sections as frames on a canvas ───────── */
+[data-theme="figma"] .section { padding: 2rem 0 .75rem; }
+[data-theme="figma"] .section-head { align-items: center; gap: .6rem; margin-bottom: .9rem; flex-wrap: wrap; }
+[data-theme="figma"] .section-head > div { display: contents; }
+[data-theme="figma"] .section-head h2 { font-size: var(--fs-h2); font-weight: 600; margin: 0; }
+[data-theme="figma"] .section-head p { flex-basis: 100%; font-size: var(--fs-body); color: var(--ink); margin-top: .1rem; }
+[data-theme="figma"] .step {
+  width: 22px; height: 22px; border-radius: 5px; background: var(--accent);
+  font-size: var(--fs-small); font-weight: 600;
+}
+
+[data-theme="figma"] .card {
+  border-radius: var(--radius); box-shadow: none; border: 1px solid var(--line); padding: 16px;
+}
+
+/* ───────── Controls: Figma property inputs ───────── */
+[data-theme="figma"] .controls label, [data-theme="figma"] .controls-row label {
+  font-size: var(--fs-small); font-weight: 500; color: var(--ink);
+}
+[data-theme="figma"] select, [data-theme="figma"] input[type=number], [data-theme="figma"] .search-box input {
+  height: 32px; padding: 0 8px; font-size: var(--fs-body); font-weight: 400;
+  background: var(--fill); border: 1px solid transparent; border-radius: 5px; color: var(--ink);
+}
+[data-theme="figma"] select:hover, [data-theme="figma"] input[type=number]:hover, [data-theme="figma"] .search-box input:hover { border-color: var(--line); }
+[data-theme="figma"] select:focus, [data-theme="figma"] input:focus, [data-theme="figma"] .search-box input:focus {
+  outline: none; border-color: var(--accent); box-shadow: none; background: #ffffff;
+}
+[data-theme="figma"] .search-box input { width: 100%; max-width: 100%; } /* the .search-box container (480px) leaves room for the full placeholder */
+[data-theme="figma"] input[type=range] { accent-color: var(--accent); }
+
+/* Buttons: secondary by default, compact */
+[data-theme="figma"] button {
+  font-size: var(--fs-small); font-weight: 500; padding: 6px 10px; border-radius: 6px;
+  border: 1px solid var(--line); background: #ffffff; color: var(--ink);
+}
+[data-theme="figma"] button:hover { background: var(--fill); border-color: var(--line); color: var(--ink); }
+
+/* Filter pills → one segmented control */
+[data-theme="figma"] .filter-pills { gap: 0; padding: 2px; background: var(--fill); border-radius: 7px; }
+[data-theme="figma"] .pill {
+  border: 0; background: transparent; color: var(--ink); font-size: var(--fs-small); font-weight: 500;
+  padding: 5px 10px; border-radius: 5px;
+}
+[data-theme="figma"] .pill:hover { color: var(--ink); background: rgba(0, 0, 0, .04); }
+[data-theme="figma"] .pill.active { background: #ffffff; color: var(--ink); box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
+
+/* Modifier toggles and route drug chips */
+[data-theme="figma"] .mod-pill { border-radius: 6px; border: 1px solid var(--line); background: #ffffff; font-size: var(--fs-small); }
+[data-theme="figma"] .mod-pill.on { background: var(--select-tint); border-color: var(--accent); color: var(--accent-hover); }
+[data-theme="figma"] .route-drug-chip { border-radius: 5px; font-size: var(--fs-small); font-weight: 500; }
+
+/* ───────── Mechanism workspace: left panel · canvas · right panel ───────── */
+[data-theme="figma"] .mech-card { padding: 0; gap: 0; overflow: hidden; }
+[data-theme="figma"] .mech-controls { padding: 16px; border-right: 1px solid var(--line); background: #ffffff; }
+[data-theme="figma"] .mech-card .illo-stage { padding: 26px 16px 16px; background: #ffffff; } /* stage sits slightly lower than the side panels */
+[data-theme="figma"] .mech-card .illo-info { padding: 16px; border-left: 1px solid var(--line); background: #ffffff; align-self: stretch; }
+[data-theme="figma"] .kin-card { padding: 0; gap: 0; overflow: hidden; }
+[data-theme="figma"] .kin-side { padding: 16px; border-right: 1px solid var(--line); background: #ffffff; }
+[data-theme="figma"] .kin-main { padding: 16px; background: #ffffff; }
+[data-theme="figma"] .rx-title { font-weight: 600; font-size: var(--fs-h3); }
+[data-theme="figma"] .rx-badge { border-radius: 6px; font-weight: 600; font-size: var(--fs-small); }
+[data-theme="figma"] .mol-viewer { border-radius: 6px; background: #ffffff; }
+
+/* Floating toolbar, as on the Figma canvas */
+[data-theme="figma"] .mol-toolbar {
+  width: fit-content; max-width: 100%; margin: .75rem auto 0; padding: 4px; gap: 2px;
+  background: #ffffff; border-radius: 13px; box-shadow: var(--float-shadow);
+}
+[data-theme="figma"] .mol-toolbar button { border: 0; border-radius: 8px; font-size: var(--fs-small); padding: 6px 9px; }
+[data-theme="figma"] .mol-toolbar button:hover { background: var(--fill); }
+[data-theme="figma"] .mol-hint { border-radius: 6px; font-size: var(--fs-small); color: var(--ink); }
+[data-theme="figma"] .mol-zoom { font-size: var(--fs-small); font-weight: 500; color: var(--ink); }
+
+/* Readouts and panels: property rows */
+[data-theme="figma"] .readout { background: var(--fill); border: 0; border-radius: 6px; padding: 8px 10px; }
+[data-theme="figma"] .readout .k { font-size: var(--fs-small); font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); }
+[data-theme="figma"] .readout .v { font-size: var(--fs-h3); font-weight: 600; }
+[data-theme="figma"] .readout.route-metric .k { font-size: var(--fs-small); }
+[data-theme="figma"] .readout.route-metric .v { font-size: var(--fs-value); }
+[data-theme="figma"] .bar { height: 4px; background: #e6e6e6; }
+[data-theme="figma"] .bar > i { background: var(--accent); }
+[data-theme="figma"] .subinfo, [data-theme="figma"] .mol-status-panel { font-size: var(--fs-body); }
+[data-theme="figma"] .mol-status-m { background: var(--fill); border-radius: 6px; }
+[data-theme="figma"] .mol-status-pill, [data-theme="figma"] .sub-effect-status, [data-theme="figma"] .role { border-radius: 5px; }
+[data-theme="figma"] .legend { font-size: var(--fs-small); color: var(--ink); }
+[data-theme="figma"] .summary { font-size: var(--fs-body); color: var(--ink); }
+[data-theme="figma"] .abbr-note { color: var(--muted); }
+
+/* ───────── Selection: crisp Figma-blue border following the card's corners ───────── */
+[data-theme="figma"] .lig-card.selected-drug,
+[data-theme="figma"] .dist-list li.selected,
+[data-theme="figma"] .sub-effect-card.active-isoform {
+  border-color: var(--accent) !important;
+  box-shadow: inset 0 0 0 1px var(--accent);
+  outline: none;
+}
+/* Layer-list style highlight for rows */
+[data-theme="figma"] .route-bar-row { border-radius: 6px; }
+[data-theme="figma"] .route-bar-row:hover { background: var(--fill); border-color: transparent; }
+[data-theme="figma"] .route-bar-row.selected { background: var(--select-tint); border-color: transparent; }
+[data-theme="figma"] .web-table tbody tr.selected,
+[data-theme="figma"] #substances-tbody tr.selected-drug { background: var(--select-tint) !important; border-left-color: var(--accent); }
+
+/* ───────── Cards and galleries ───────── */
+[data-theme="figma"] .sub-effect-card, [data-theme="figma"] .lig-card { border-radius: 8px; border: 1px solid var(--line); background: #ffffff; }
+[data-theme="figma"] .sub-effect-card.insensitive { background: #fafafa; }
+[data-theme="figma"] .sub-occ-bar-bg { height: 4px; background: #e6e6e6; }
+[data-theme="figma"] .lig-card .mol-panel { border-radius: 6px; background: var(--fill); border: 0; }
+[data-theme="figma"] .lig-card p { color: var(--ink); }
+[data-theme="figma"] .sub-effect-badge { border-radius: 5px; }
+
+/* ───────── Tables (same font and size, no gray markings - as in classic) ───────── */
+[data-theme="figma"] .table-responsive { border-radius: 8px; border: 1px solid var(--line); }
+[data-theme="figma"] .web-table th { background: #fafafa; color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--line); }
+[data-theme="figma"] .web-table td { border-bottom: 1px solid var(--line); }
+[data-theme="figma"] .web-table tbody tr:hover { background: var(--fill); }
+[data-theme="figma"] .web-table tbody tr.row-lot { background: #f7fcf9; }
+[data-theme="figma"] .badge-cat { border-radius: 5px; }
+[data-theme="figma"] .tag-lot { border-radius: 4px; }
+[data-theme="figma"] table.params td { border-bottom: 1px solid var(--line); }
+
+/* Warning frame and pathway nodes */
+[data-theme="figma"] .dose-text .warn { border-radius: 8px; border: 1px solid #ffc9c9; border-left: 3px solid #e03131; }
+[data-theme="figma"] .pw-node { border-radius: 6px; }
+
+/* ───────── Footer ───────── */
+[data-theme="figma"] .footer { background: var(--bg); color: var(--muted); font-size: var(--fs-small); }
+
+/* Keep readout sub-lines small */
+[data-theme="figma"] .readout .v.small { font-size: var(--fs-small); font-weight: 400; line-height: 1.5; }
+
+/* Workspace panels when the layout stacks (mirrors the classic breakpoints) */
+@media (max-width: 1100px) {
+  [data-theme="figma"] .mech-card { grid-template-columns: 250px minmax(0, 1fr); }
+  [data-theme="figma"] .mech-card .illo-info { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 800px) {
+  [data-theme="figma"] .mech-card { grid-template-columns: minmax(0, 1fr); }
+  [data-theme="figma"] .mech-controls { border-right: 0; border-bottom: 1px solid var(--line); }
+  [data-theme="figma"] .kin-card { grid-template-columns: minmax(0, 1fr); }
+  [data-theme="figma"] .kin-side { border-right: 0; border-bottom: 1px solid var(--line); }
+  [data-theme="figma"] .section-head p { font-size: var(--fs-body); }
+}
+
+/* Receptor subunits: no outer panel frame - the nine subunit cards sit directly on the canvas */
+[data-theme="figma"] #pd-subunits-panel { background: transparent; border: 0; padding: 0; box-shadow: none; }
+
+/* Speed category chip: same shape as the drug chips (filled, like the active chip) */
+[data-theme="figma"] .route-speed-chip { border-radius: 5px; font-size: var(--fs-small); font-weight: 500; padding: 5px 10px; line-height: 1.2; }
+
+/* Settings panel: segmented language and region buttons */
+[data-theme="figma"] .seg button { border: 0; background: transparent; padding: 5px 8px; font-size: var(--fs-small); font-weight: 500; border-radius: 5px; }
+[data-theme="figma"] .seg button:hover { background: rgba(0, 0, 0, .04); }
+[data-theme="figma"] .seg button[aria-pressed="true"] { background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); color: var(--ink); }
+[data-theme="figma"] .settings-toggle { height: 30px; padding: 0 .55rem; font-size: var(--fs-small); }

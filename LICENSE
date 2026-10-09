@@ -1,0 +1,50 @@
+Copyright (c) 2026 impressio (https://github.com/impressio)
+All rights reserved.
+
+1. What this notice covers
+
+This notice covers the original work in this repository and any website built
+from it (ap.matty.se): the source code, the explanatory texts and their
+translations, the figures and design, and the selection, arrangement and
+annotation of the data (including the source and verification records in
+assets/data/properties.json). Individual facts and values reported in the
+literature or in public sources are not claimed; third-party material is
+listed in section 4.
+
+2. What you may do
+
+- View the website and the source code.
+- Clone or download the repository for private study, teaching and evaluation
+  (for example by reviewers or editors).
+- Link to the website or the repository and cite the work.
+- Fork the repository on GitHub, as permitted by GitHub's Terms of Service.
+
+3. What requires prior written permission
+
+You may not copy, modify, distribute, publish, host, sublicense or sell this
+work or any part of it, or create derivative works from it, beyond what
+section 2 allows, without prior written permission from the copyright holder.
+
+4. Third-party material (excluded; remains under its own terms)
+
+- Receptor-binding data from the IUPHAR/BPS Guide to Pharmacology (database
+  ODbL, contents CC BY-SA 4.0) and ChEMBL (CC BY-SA 3.0).
+- Molecular weights from PubChem (NCBI; public domain).
+- Values from FDA prescribing information (DailyMed, openFDA) and from the EU
+  summaries of product characteristics published in FASS (texts copyright of
+  the marketing-authorization holders and Läkemedelsindustriföreningen; only
+  facts and short quotations are used, with citation).
+- Values from the published literature, each cited in assets/data/properties.json.
+- Model data listed in assets/models/NOTICE (PDB entries 6CM4, 6LUQ and 8U02,
+  CC0; FreeSurfer fsaverage and the ICBM 152 2009c template via TemplateFlow) and
+  the structure drawings described in assets/images/structures/NOTICE.
+- JavaScript libraries loaded from CDNs (Plotly.js, 3Dmol.js, three.js, KaTeX)
+  and the Inter font, under their own licenses.
+
+Sources and their licenses are listed in assets/data/properties.json
+(references) and on the data page (properties.html).
+
+5. No warranty
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IT IS FOR
+EDUCATION ONLY AND IS NOT INTENDED TO GUIDE CLINICAL DECISIONS.

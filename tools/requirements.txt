@@ -1,0 +1,4 @@
+# Build dependencies for tools/build_structures.py, tools/build_brain.py and tools/build_receptor.py (versions used to build the committed assets)
+numpy==2.5.3
+scipy==1.18.1
+rdkit==2026.9.1

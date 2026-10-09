@@ -1,0 +1,39 @@
+/* =====================================================================
+ * properties.css - the property tables page (properties.html).
+ * Follows TYPOGRAPHY.md: table text has the same font, size and line
+ * height as body text; headers differ only by weight.
+ * ===================================================================== */
+.props-head { padding-bottom: .5rem; }
+.props-head h1 { font-size: var(--fs-display); font-weight: 600; margin: 0 0 .5rem; }
+.props-head p { font-size: var(--fs-body); line-height: 1.5; margin: 0; max-width: 900px; }
+
+.props-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-bottom: 1rem; }
+.props-controls label { display: flex; align-items: center; gap: .5rem; font-size: var(--fs-small); font-weight: 500; }
+.props-controls .filter-pills { display: flex; flex-wrap: wrap; }
+
+.props-card { margin-bottom: 1rem; }
+.props-card h3 { margin: 0 0 .25rem; font-size: var(--fs-h3); font-weight: 600; }
+.props-count { display: inline-block; margin-left: .35rem; padding: 0 .45rem; border-radius: 5px; background: var(--fill); font-size: var(--fs-small); font-weight: 500; color: var(--muted); vertical-align: middle; }
+.props-source { margin: 0 0 .5rem; font-size: var(--fs-small); }
+
+.props-table { width: 100%; border-collapse: collapse; text-align: left; font-size: var(--fs-body); line-height: 1.5; font-family: inherit; color: var(--ink); }
+.props-table th { vertical-align: top; font-weight: 600; background: var(--fill); padding: .5rem .75rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.props-table td { padding: .5rem .75rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.props-table tbody tr:last-child td { border-bottom: 0; }
+.props-table tbody tr:hover { background: #fafafa; }
+.props-table code { font-size: inherit; word-break: break-all; }
+
+/* Verification status of each value (sources table) */
+.props-status { display: inline-block; padding: 0 .45rem; border-radius: 5px; font-weight: 500; white-space: nowrap; }
+.props-status-consistent { background: #ebfbee; color: #2b8a3e; }
+.props-status-differs { background: #fff5f5; color: #c92a2a; }
+.props-status-full-text { background: #fff9db; color: #8f6200; }
+.props-status-model { background: var(--fill); color: var(--ink); }
+.props-table code.props-path { word-break: normal; }
+.props-intro { margin: 0 0 .75rem; font-size: var(--fs-body); line-height: 1.5; }
+.val-plot { width: 100%; margin-bottom: 1rem; }
+.props-status-calibrated { background: #e7f5ff; color: #1864ab; }
+.props-unit { font-weight: 400; }
+.props-abbr { margin: .75rem 0 0; font-size: var(--fs-body); line-height: 1.5; color: var(--muted); }
+.props-status-unverified { background: #fff9db; color: #8f6200; }
+.props-status-partly-unverified { background: #fff9db; color: #8f6200; }
